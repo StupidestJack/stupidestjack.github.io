@@ -1,6 +1,2 @@
 # blog
-部落格pages
-
-html是AI寫的
-
-現已整合進另一個網站，故封存，望週知
+此部落格將進行重新整理，coming soon~
