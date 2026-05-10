@@ -2,7 +2,7 @@
 我很常看他的文章，寫的也不錯，最近就看他抱怨現在的網站太複雜<br>
 沒看過的出門右轉：[當今網頁設計框架太肥大了，架站難道不能只用HTML + CSS就搞定？](https://ivonblog.com/posts/in-search-of-the-simple-web-design/) <br>
  > *Ivon 使用了CC BY-NC-ND，此處僅為引用與redirect*
-
+ 
 我也有差不多的感覺。<br>
 Just like [this](https://how-i-experience-web-today.com/)，廣告一堆沒有有用的訊息。<br>
 最好笑的是為什麼會在YouTube下載器的網站裡面放那種「你好，我在找一個人做\[__\]」的廣告...
