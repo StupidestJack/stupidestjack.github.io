@@ -12,7 +12,7 @@ Just like [this](https://how-i-experience-web-today.com/)，廣告一堆沒有�
  * scripts/content.js (顯示文章內容)
  * scripts/headtail.js (顯示頁首頁尾)
  * scripts/home.js (顯示主畫面)
- * marked.min.js (Markdown轉HTML)
+ * marked.min.js (Markdown轉HTML)<br>
 沒了awa
 
 順帶一題，聽說Richard Stallman這位大哥他還在用curl靜態載入網站...<br>
