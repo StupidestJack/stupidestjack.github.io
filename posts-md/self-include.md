@@ -1,10 +1,9 @@
-## 大家好，我是Niugnep，
-## 一個喜歡開源社群的國二生。
+## 大家好，我是Niugnep，<br>一個喜歡開源社群的國二生。
 
 ---
 
-## 關於我？
- - 生日：2012/2/25（反正會有生日幹話文就貼了）
+### 關於我？
+ - 生日：2012/2/25（反正之後應該會有生日幹話文就貼了）
  - 年齡：自己算
  - 真實姓名：自己猜吧
  - 暱稱：豆子、Niugnep、StupidestJack
@@ -14,7 +13,7 @@
 
 ---
 
-## 關於這個部落格的主題？
+### 關於這個部落格的主題？
 
 大概就分成開源資訊、無聊的教學、網路內容跟日常吧<br>
  - 開源資訊： 我會在這部份聊一些跟Linux、開源社區有關的內容
@@ -24,10 +23,10 @@
 
 ---
 
-## 裝備長啥樣？
+### 裝備長啥樣？
 
 我在GitHub有一份裝備清單，直接貼上了。 <br>
-### 主力機
+#### 主力機
  - 型號：Gigabyte G5 GE
  - CPU：12th Gen Intel(R) Core(TM) i5-12500H
  - RAM：8+8 | DDR4-3200
@@ -39,7 +38,7 @@
 
  > *So NVIDIA, f\*\*k you!* -- Linus Torvalds
 
-### 外出機
+#### 外出機
  - 型號：Acer Aspire K50-10-57E8
  - CPU：6th Gen Intel(R) Core(TM) i5-6200U
  - RAM：4+8 DDR3-1666 （沒錢啊
@@ -49,7 +48,7 @@
  > 其實要不是外出機的軟體有Visual Studio，我早就想灌Arch了
 
 
-### 手機
+#### 手機
  - 型號：Motorola Razr 40 Ultra
  - SoC：Snapdragon 8+ Gen 1
  - RAM：12 GB
@@ -63,7 +62,7 @@
 [Twitter / X](https://x.com/stupidestjack) (@stupidestjack) <br>
 [Discord Server](https://discord.com/invite/VQ9uNweSn9) <br>
 [YouTube](https://www.youtube.com/@StupidestJack) (@StupidestJack) <br>
-[Email](mamegoodbean@gmail.com) (mamegoodbean@gmail.com) <br>
+[Email](mailto:niugnep87@proton.me) (mailto:niugnep87@proton.me) <br>
 [GitHub](https://github.com/StupidestJack) (@StupidestJack) <br>
 
 ---
