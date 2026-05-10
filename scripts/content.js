@@ -35,11 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(err => {
             document.getElementById('content').innerHTML = `
-            <div style="text-align:center; padding: 50px;">
+            <h1>404</h1>
             <h2>(｡•́︿•̀｡) 找不到文章</h2>
-            <p>這篇文章可能還在草稿夾裡，或者被外星人劫走了。</p>
+            <p>這篇文章可能在草稿夾裡，或被外星人劫走了，甚至是去渡假了。</p>
             <a href="index.html" style="color: var(--accent-color);">回首頁</a>
-            </div>
             `;
         });
     } else {
