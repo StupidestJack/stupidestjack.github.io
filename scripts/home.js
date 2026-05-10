@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             article.style.cursor = "pointer";
             article.addEventListener('click', () => {
                 window.location.href =
-                    `post.html?post=${postName}`;
+                    `post${window.location.pathname == 'motherfuck.html' ? '_motherfuck' : ''}.html?post=${postName}`;
             });
 
             container.appendChild(article);
