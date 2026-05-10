@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `post_motherfuck.html?post=${postName}`;
             });
 
-            container.appendChild(article);
+            container.appendChild(article); 
         });
 
     });
