@@ -1,156 +1,270 @@
+# 因為我懶，這段是交給AI寫的
+# 反正不是把文章丟給他awa
+
+import re
+import html
+
+def parse_inline(text):
+    """
+    處理 inline markdown
+    """
+
+    text = text.replace("<br>", "__BR__")
+
+    # escape HTML
+    text = html.escape(text)
+
+    # link
+    text = re.sub(
+        r"\[(.*?)\]\((.*?)\)",
+        r'<a href="\2">\1</a>',
+        text
+    )
+
+    # 粗體
+    text = re.sub(
+        r"\*\*(.*?)\*\*",
+        r"<b>\1</b>",
+        text
+    )
+
+    # 斜體
+    text = re.sub(
+        r"\*(.*?)\*",
+        r"<i>\1</i>",
+        text
+    )
+
+    text = text.replace("__BR__", "<br>")
+    return text
+
+
 def markdown_to_html(markdown_text):
+
     lines = markdown_text.split("\n")
-    html = []
+    html_out = []
 
     in_code = False
     in_ul = False
+    in_ol = False
     in_table = False
+    in_blockquote = False
 
     for line in lines:
+
         stripped = line.strip()
 
-        # =========================
-        # 程式碼區塊 ```
-        # =========================
+        # =====================================
+        # 程式碼區塊
+        # =====================================
+
         if stripped.startswith("```"):
+
             if not in_code:
-                html.append("<pre><code>")
+                html_out.append("<pre><code>")
                 in_code = True
             else:
-                html.append("</code></pre>")
+                html_out.append("</code></pre>")
                 in_code = False
+
             continue
 
         if in_code:
-            html.append(
-                line.replace("&", "&amp;")
-                    .replace("<", "&lt;")
-                    .replace(">", "&gt;")
+
+            html_out.append(
+                line
+                .replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
             )
+
             continue
 
-        # =========================
-        # 表格
-        # =========================
-        if "|" in stripped:
-            cols = [c.strip() for c in stripped.strip("|").split("|")]
+        # =====================================
+        # 原生 HTML
+        # =====================================
 
-            # 跳過 --- 分隔線
-            if all(set(c) <= {"-"} for c in cols):
+        if stripped.startswith("<") and stripped.endswith(">"):
+            html_out.append(stripped)
+            continue
+
+        # =====================================
+        # 表格
+        # =====================================
+
+        if stripped.startswith("|") and stripped.endswith("|"):
+
+            cols = [
+                parse_inline(c.strip())
+                for c in stripped.strip("|").split("|")
+            ]
+
+            # markdown table separator
+            if all(set(c.replace(":", "")) <= {"-"} for c in cols):
                 continue
 
             if not in_table:
-                html.append("<table border='1'>")
+                html_out.append("<table border='1'>")
                 in_table = True
 
-            html.append("<tr>")
+            html_out.append("<tr>")
+
             for col in cols:
-                html.append(f"<td>{col}</td>")
-            html.append("</tr>")
+                html_out.append(f"<td>{col}</td>")
+
+            html_out.append("</tr>")
+
             continue
+
         else:
+
             if in_table:
-                html.append("</table>")
+                html_out.append("</table>")
                 in_table = False
 
-        # =========================
-        # 清單 (* 或 -)
-        # =========================
+        # =====================================
+        # blockquote
+        # =====================================
+
+        if stripped.startswith(">"):
+
+            if not in_blockquote:
+                html_out.append("<blockquote>")
+                in_blockquote = True
+
+            html_out.append(
+                f"<p>{parse_inline(stripped[1:].strip())}</p>"
+            )
+
+            continue
+
+        else:
+
+            if in_blockquote:
+                html_out.append("</blockquote>")
+                in_blockquote = False
+
+        # =====================================
+        # unordered list
+        # =====================================
+
         if stripped.startswith("* ") or stripped.startswith("- "):
+
             if not in_ul:
-                html.append("<ul>")
+                html_out.append("<ul>")
                 in_ul = True
 
-            item = stripped[2:]
-            html.append(f"<li>{item}</li>")
+            item = parse_inline(stripped[2:])
+
+            html_out.append(f"<li>{item}</li>")
+
             continue
+
         else:
+
             if in_ul:
-                html.append("</ul>")
+                html_out.append("</ul>")
                 in_ul = False
 
-        # =========================
+        # =====================================
+        # ordered list
+        # =====================================
+
+        if re.match(r"^\d+\.\s", stripped):
+
+            if not in_ol:
+                html_out.append("<ol>")
+                in_ol = True
+
+            item = re.sub(r"^\d+\.\s", "", stripped)
+
+            html_out.append(
+                f"<li>{parse_inline(item)}</li>"
+            )
+
+            continue
+
+        else:
+
+            if in_ol:
+                html_out.append("</ol>")
+                in_ol = False
+
+        # =====================================
         # 標題
-        # =========================
-        if stripped.startswith("### "):
-            html.append(f"<h3>{stripped[4:]}</h3>")
+        # =====================================
+
+        if stripped.startswith("###### "):
+            html_out.append(
+                f"<h6>{parse_inline(stripped[7:])}</h6>"
+            )
+
+        elif stripped.startswith("##### "):
+            html_out.append(
+                f"<h5>{parse_inline(stripped[6:])}</h5>"
+            )
+
+        elif stripped.startswith("#### "):
+            html_out.append(
+                f"<h4>{parse_inline(stripped[5:])}</h4>"
+            )
+
+        elif stripped.startswith("### "):
+            html_out.append(
+                f"<h3>{parse_inline(stripped[4:])}</h3>"
+            )
 
         elif stripped.startswith("## "):
-            html.append(f"<h2>{stripped[3:]}</h2>")
+            html_out.append(
+                f"<h2>{parse_inline(stripped[3:])}</h2>"
+            )
 
         elif stripped.startswith("# "):
-            html.append(f"<h1>{stripped[2:]}</h1>")
+            html_out.append(
+                f"<h1>{parse_inline(stripped[2:])}</h1>"
+            )
 
-        # =========================
-        # 粗體
-        # =========================
-        elif stripped.startswith("**") and stripped.endswith("**"):
-            html.append(f"<b>{stripped[2:-2]}</b>")
+        # =====================================
+        # hr
+        # =====================================
 
-        # =========================
-        # 斜體
-        # =========================
-        elif stripped.startswith("*") and stripped.endswith("*"):
-            html.append(f"<i>{stripped[1:-1]}</i>")
+        elif stripped in ["---", "***"]:
+            html_out.append("<hr>")
 
-        # =========================
+        # =====================================
         # 空行
-        # =========================
+        # =====================================
+
         elif stripped == "":
-            html.append("<br>")
+            html_out.append("")
 
-        # =========================
+        # =====================================
         # 一般段落
-        # =========================
-        else:
-            html.append(f"<span>{stripped}</span><br>")
+        # =====================================
 
-    # 防止沒關閉
+        else:
+
+            html_out.append(
+                f"<p>{parse_inline(stripped)}</p>"
+            )
+
+    # =====================================
+    # 強制關閉
+    # =====================================
+
     if in_ul:
-        html.append("</ul>")
+        html_out.append("</ul>")
+
+    if in_ol:
+        html_out.append("</ol>")
 
     if in_table:
-        html.append("</table>")
+        html_out.append("</table>")
+
+    if in_blockquote:
+        html_out.append("</blockquote>")
 
     if in_code:
-        html.append("</code></pre>")
+        html_out.append("</code></pre>")
 
-    return "\n".join(html)
-
-
-# =========================
-# 測試
-# =========================
-
-if __name__ == "__main__":
-    md = """
-    # 標題
-    ## 二標題
-    ### 三標題
-    這是段落
-    這是段落
-    這是段落
-    這是段落
-
-    ## 清單
-    * 第一項
-    - 第二項
-
-    ## 表格
-    | 名字 | 年齡 |
-    | --- | --- |
-    | 小明 | 14 |
-    | 小華 | 15 |
-
-    ## 程式碼
-    ```
-    print("Hello")
-    print("World")
-    ```
-
-    ## 嵌入式
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=xyC_AbcErwKT9q_2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    """
-
-    result = markdown_to_html(md)
-    print(result)
+    return "\n".join(html_out)

@@ -1,10 +1,10 @@
 header = """
 <header>
-<div class="logo"><a href="index.html">Niugnep 的部落格</a></div>
+<div class="logo"><a href="/index.html">Niugnep 的部落格</a></div>
 <nav>
-<a href="index.html">首頁</a>
-<a href="post.html?post=self-include">關於我</a>
-<a href="motherfuck.html">媽的發</a>
+<a href="/index.html">首頁</a>
+<a href="/posts/self-include.html">關於我</a>
+<a href="/all.html">所有文章</a>
 </nav>
 </header>
 """

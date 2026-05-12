@@ -1,4 +1,4 @@
-meta_desc = '<meta name="description" content="{}">'
+desc = '<meta name="description" content="{}">'
 
 og_title = '<meta property="og:title" content="{}">'
 og_desc = '<meta property="og:description" content="{}">'
