@@ -3,7 +3,7 @@
 [傳送門](stupidestjack.github.io/blog)
 
 ## 授權
-文章將套用CC BY 4.0授權<br>
+文章將套用[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)授權<br>
 若要使用請用`Niugnep`、`StupidestJack`當作原作者名字，<br>
 也可以加上我的部落格連結。
 
