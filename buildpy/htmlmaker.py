@@ -3,5 +3,5 @@ html_template = """<html lang="zh-Hant"><head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{}</title>
     {}
-    <link rel="stylesheet" href="https://stupidestjack.github.io/blog/sty.css">
+    <link rel="stylesheet" href="/blog/sty.css">
 </head><body>{}</body></html>"""
