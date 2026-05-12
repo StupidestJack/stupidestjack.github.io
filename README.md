@@ -1,6 +1,6 @@
 # Niugnep 的部落格
 我懶的寫啦，直接進license<br>
-[傳送門](stupidestjack.github.io/blog)
+[傳送門](https://stupidestjack.github.io/blog)
 
 ## 授權
 文章將套用[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)授權<br>
