@@ -2,6 +2,7 @@ import buildpy.markdown as md
 import buildpy.htmlmaker as htmlmk
 import buildpy.headtail as ht
 import buildpy.metadata as meta
+import buildpy.xmlbuild as xmlb
 from pathlib import Path
 import json
 
@@ -90,6 +91,11 @@ def build_home(posts):
         {meta.og_desc.format("Niugnep 部落格的首頁")}
         {meta.author}
         {meta.pub_date.format("2026-05-12")}
+        <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="RSS"
+            href="/blog/rss.xml">
         ''', # 第二部份：metadatas
         f'''
         {ht.header}
@@ -142,6 +148,12 @@ def build_all(posts):
 with open("posts.json", "r", encoding="utf-8") as f:
     posts = json.load(f)
 
+posts = sorted(
+    posts,
+    key=lambda x: x["time"],
+    reverse=True
+)
+
 Path("posts").mkdir(exist_ok=True)
 for post in posts:
     try:
@@ -167,3 +179,9 @@ except Exception as e:
     print(f"建置all失敗...>皿< ({e})")
 else:
     print(f"建置all成功！>v<")
+    
+with open("rss.xml", "w", encoding="utf-8") as f:
+    f.write(xmlb.buildrss(posts))
+
+with open("sitemap.xml", "w", encoding="utf-8") as f:
+    f.write(xmlb.buildsm(posts))
