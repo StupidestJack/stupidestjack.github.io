@@ -51,6 +51,20 @@ nav a:hover {
     margin: 40px auto;
     padding: 0 20px;
 }
+#comment {
+    border: #3f3f3f solid 1px;
+    border-radius: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+#posts-list
+{
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 
 #title {
 font-size: 2.5rem;
@@ -128,4 +142,8 @@ img {
     border-radius: 999px;
 
     font-size: 0.85rem;
+}
+
+.des {
+    color: white;
 }
