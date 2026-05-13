@@ -91,6 +91,7 @@ def build_home(posts):
         {meta.og_desc.format("Niugnep 部落格的首頁")}
         {meta.author}
         {meta.pub_date.format("2026-05-12")}
+        <meta name="google-site-verification" content="-BsyQE4UmvmmmNQqDf_hvjxk3V9AFHN1nPSElMM7Vs0" />
         <link
             rel="alternate"
             type="application/rss+xml"
