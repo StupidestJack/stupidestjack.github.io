@@ -35,7 +35,6 @@ header {
 nav a {
     color: var(--text-primary);
     text-decoration: none;
-    margin-left: 20px;
     transition: color 0.3s;
 }
 
@@ -146,4 +145,75 @@ img {
 
 .des {
     color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+
+  .navbar {
+    position: relative;
+  }
+
+  .hamburger {
+    display: block;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+    top: 40px;
+    right: 0;
+
+    width: 160px;
+
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+
+    padding: 10px;
+
+    z-index: 999;
+
+    flex-direction: column;
+  }
+
+  .nav-links a {
+    display: block;
+
+    margin: 0;
+    padding: 10px;
+
+    white-space: nowrap;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
 }
