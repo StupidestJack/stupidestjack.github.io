@@ -9,7 +9,7 @@ import json
 
 def build(post):
     content = ''
-    with open(f"posts-md/{post["slug"]}.md",'r') as f:
+    with open(f"posts-md/{post['slug']}.md",'r') as f:
         content = f.read()
     html = htmlmk.html_template.format(
         f'{post["title"]} | Niugnep 的部落格', # 第一部份：title
@@ -18,7 +18,7 @@ def build(post):
         {meta.og_title.format(post["title"])}
         {meta.og_desc.format(post["description"])}
         {meta.author}
-        {meta.canonical.format(post["slug"])}
+        {meta.canonical.format(post['slug'])}
         {meta.pub_date.format(post["time"])}
         ''', # 第二部份：metadatas
         f'''
@@ -66,7 +66,7 @@ def get_articles(posts, all):
         for j in posts[i]["tags"]:
             tags += f'<span class="tag">{j}</span>'
         article = f'''
-        <article class="post-card"><a href="posts/{posts[i]["slug"]}.html">
+        <article class="post-card"><a href="posts/{posts[i]['slug']}.html">
             <h3>{posts[i]["title"]}</h3>
             <p class="post-time">
                 {posts[i]["time"]}
@@ -167,12 +167,12 @@ timeline = sorted(
 Path("posts").mkdir(exist_ok=True)
 for post in posts:
     try:
-        with open(f'posts/{post["slug"]}.html','w',encoding="utf-8") as f:
+        with open(f'posts/{post['slug']}.html','w',encoding="utf-8") as f:
             f.write(build(post))
     except Exception as e:
-        print(f"建置{post["slug"]}失敗...>皿< ({e})")
+        print(f"建置{post['slug']}失敗...>皿< ({e})")
     else:
-        print(f"建置{post["slug"]}成功！>v<")
+        print(f"建置{post['slug']}成功！>v<")
 
 try:
     with open("index.html", "w", encoding="utf-8") as f:
