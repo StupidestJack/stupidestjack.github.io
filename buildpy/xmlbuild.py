@@ -28,6 +28,7 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         <guid>https://stupidestjack.github.io/blog/posts/{i["slug"]}.html</guid>
         <description>{escape(i["description"])}</description>
         <pubDate>{rss_time(i["time"])}</pubDate>
+        <author>Niugnep Hsueh | niugnep87@proton.me</author>
     </item>'''
     rss += '</channel></rss>'
     return rss 

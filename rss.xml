@@ -17,6 +17,7 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         <guid>https://stupidestjack.github.io/blog/posts/made-my-ssg.html</guid>
         <description>關於寫SSG的心得</description>
         <pubDate>Thu, 14 May 2026 00:00:00 -0000</pubDate>
+        <author>Niugnep Hsueh | niugnep87@proton.me</author>
     </item>
     <item>
         <title>現在的網站真的有點肥啊，JS濫用之術</title>
@@ -24,6 +25,7 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         <guid>https://stupidestjack.github.io/blog/posts/better-website.html</guid>
         <description>關於為什麼我不喜歡現在的網站</description>
         <pubDate>Sun, 10 May 2026 00:00:00 -0000</pubDate>
+        <author>Niugnep Hsueh | niugnep87@proton.me</author>
     </item>
     <item>
         <title>蛤？你問我是誰？</title>
@@ -31,4 +33,5 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         <guid>https://stupidestjack.github.io/blog/posts/self-include.html</guid>
         <description>你好我叫Niugnep，想認識我就進來吧</description>
         <pubDate>Thu, 07 May 2026 00:00:00 -0000</pubDate>
+        <author>Niugnep Hsueh | niugnep87@proton.me</author>
     </item></channel></rss>
