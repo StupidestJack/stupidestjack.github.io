@@ -1,5 +1,12 @@
 [
     {
+        "slug":"made-my-ssg",
+        "title":"我寫了個自己的SSG...",
+        "time":"2026-05-10",
+        "description": "關於寫SSG的心得",
+        "tags":["幹話","Python","程式","網路","網頁設計"]
+    },
+    {
         "slug":"better-website",
         "title":"現在的網站真的有點肥啊，JS濫用之術",
         "time":"2026-05-10",
