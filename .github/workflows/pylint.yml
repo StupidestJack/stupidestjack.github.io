@@ -1,0 +1,38 @@
+name: Auto Build Blog
+
+on: 
+  push:
+    branches:
+      - main  # 只有推送到 main 分支時才觸發
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 檢出代碼
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: true # 允許 Actions 回推檔案
+
+    - name: 設定 Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    - name: 安裝依賴 (如有需要)
+      run: |
+        python -m pip install --upgrade pip
+        # 如果你的 build.py 有用到 markdown 或 jinja2 等套件，記得加在這裡
+        # pip install markdown 
+
+    - name: 執行自製 SSG 構建
+      run: python build.py
+
+    - name: 自動回推變更
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        # 只有在有檔案變更時才 commit，避免噴錯
+        git diff --quiet && git diff --staged --quiet || (git commit -m "chore: 🤖 自動構建部落格內容" && git push)
