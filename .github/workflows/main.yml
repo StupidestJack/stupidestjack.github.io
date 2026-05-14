@@ -1,0 +1,32 @@
+name: Python + Jekyll Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    # 1. 跑你的 Python 腳本 (生成 Markdown 或資料)
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    - name: Run Python build script
+      run: python build.py
+
+    # 2. 跑 Jekyll 編譯 (把 Python 產出的東西轉成最終網頁)
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+    - name: Build with Jekyll
+      uses: actions/jekyll-build-pages@v1
+      with:
+        source: ./          # Jekyll 原始碼位置
+        destination: ./_site # 編譯後輸出的位置
+
+    # 3. 部署到 GitHub Pages
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
