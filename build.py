@@ -167,7 +167,7 @@ timeline = sorted(
 Path("posts").mkdir(exist_ok=True)
 for post in posts:
     try:
-        with open(f'posts/{post['slug']}.html','w',encoding="utf-8") as f:
+        with open(f'posts/{post["slug"]}.html','w',encoding="utf-8") as f:
             f.write(build(post))
     except Exception as e:
         print(f"建置{post['slug']}失敗...>皿< ({e})")
