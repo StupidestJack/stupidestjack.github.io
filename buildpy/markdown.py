@@ -35,6 +35,12 @@ def parse_inline(text):
         text
     )
 
+    text = re.sub(
+        r"~~(.*?)~~",
+        r"<s>\1</s>",
+        text
+    )
+
     text = text.replace("__BR__", "<br>")
     return text
 
