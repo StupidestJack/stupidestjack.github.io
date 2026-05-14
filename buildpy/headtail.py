@@ -14,6 +14,7 @@ header = """
 <a href="/blog/index.html">首頁</a>
 <a href="/blog/posts/self-include.html">關於我</a>
 <a href="/blog/all.html">所有文章</a>
+<a href="/blog/timeline">時間軸</a>
 </div>
 
 </nav>

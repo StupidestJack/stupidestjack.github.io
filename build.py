@@ -3,6 +3,7 @@ import buildpy.htmlmaker as htmlmk
 import buildpy.headtail as ht
 import buildpy.metadata as meta
 import buildpy.xmlbuild as xmlb
+import buildpy.timeline as tl
 from pathlib import Path
 import json
 
@@ -149,8 +150,16 @@ def build_all(posts):
 with open("posts.json", "r", encoding="utf-8") as f:
     posts = json.load(f)
 
+with open("timeline/line.json", "r", encoding="utf-8") as f:
+    timeline = json.load(f)
+
 posts = sorted(
     posts,
+    key=lambda x: x["time"],
+    reverse=True
+)
+timeline = sorted(
+    timeline,
     key=lambda x: x["time"],
     reverse=True
 )
@@ -181,8 +190,26 @@ except Exception as e:
 else:
     print(f"建置all成功！>v<")
     
-with open("rss.xml", "w", encoding="utf-8") as f:
-    f.write(xmlb.buildrss(posts))
+try:
+    with open("sitemap.xml", "w", encoding="utf-8") as f:
+        f.write(xmlb.buildsm(posts))
+except Exception as e:
+    print(f"建置sitemap失敗...>皿< ({e})")
+else:
+    print(f"建置sitemap成功！>v<")
 
-with open("sitemap.xml", "w", encoding="utf-8") as f:
-    f.write(xmlb.buildsm(posts))
+try:
+    with open("rss.xml", "w", encoding="utf-8") as f:
+        f.write(xmlb.buildrss(posts))
+except Exception as e:
+    print(f"建置rss失敗...>皿< ({e})")
+else:
+    print(f"建置rss成功！>v<")
+
+try:
+    with open("timeline/index.html", "w", encoding="utf-8") as f:
+        f.write(tl.build_timeline(timeline))
+except Exception as e:
+    print(f"建置timeline失敗...>皿< ({e})")
+else:
+    print(f"建置timeline成功！>v<")
