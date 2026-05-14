@@ -12,6 +12,13 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         type="application/rss+xml"/>
     
     <item>
+        <title>我寫了個自己的SSG...</title>
+        <link>https://stupidestjack.github.io/blog/posts/made-my-ssg.html</link>
+        <guid>https://stupidestjack.github.io/blog/posts/made-my-ssg.html</guid>
+        <description>關於寫SSG的心得</description>
+        <pubDate>Thu, 14 May 2026 00:00:00 -0000</pubDate>
+    </item>
+    <item>
         <title>現在的網站真的有點肥啊，JS濫用之術</title>
         <link>https://stupidestjack.github.io/blog/posts/better-website.html</link>
         <guid>https://stupidestjack.github.io/blog/posts/better-website.html</guid>
