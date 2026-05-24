@@ -1,5 +1,12 @@
 [
     {
+        "slug":"linux-memes",
+        "title":"自製的Linux梗圖分享",
+        "time":"2026-05-24",
+        "description": "準備好了沒？大的要來了！",
+        "tags":["Linux","迷因","梗圖"]
+    },
+    {
         "slug":"made-my-ssg",
         "title":"我寫了個自己的SSG...",
         "time":"2026-05-14",

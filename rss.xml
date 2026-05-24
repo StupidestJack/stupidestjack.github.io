@@ -12,6 +12,14 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         type="application/rss+xml"/>
     
     <item>
+        <title>自製的Linux梗圖分享</title>
+        <link>https://stupidestjack.github.io/blog/posts/linux-memes.html</link>
+        <guid>https://stupidestjack.github.io/blog/posts/linux-memes.html</guid>
+        <description>準備好了沒？大的要來了！</description>
+        <pubDate>Sun, 24 May 2026 00:00:00 -0000</pubDate>
+        <author>Niugnep Hsueh | niugnep87@proton.me</author>
+    </item>
+    <item>
         <title>我寫了個自己的SSG...</title>
         <link>https://stupidestjack.github.io/blog/posts/made-my-ssg.html</link>
         <guid>https://stupidestjack.github.io/blog/posts/made-my-ssg.html</guid>
