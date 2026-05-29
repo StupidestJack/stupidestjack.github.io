@@ -1,5 +1,12 @@
 [
     {
+        "slug":"linux-for-beginner",
+        "title":"《成為Linux使用者並在一年內挑戰Arch Linux》01 - Linux 是什麼？能吃嗎？",
+        "time":"2026-05-30",
+        "description": "開坑新系列，面向新手的Linux教學！",
+        "tags":["Linux","教學","新手"]
+    },
+    {
         "slug":"linux-memes",
         "title":"自製的Linux梗圖分享",
         "time":"2026-05-24",
