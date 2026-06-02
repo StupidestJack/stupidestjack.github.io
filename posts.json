@@ -1,5 +1,12 @@
 [
     {
+        "slug":"install-mint",
+        "title":"《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學",
+        "time":"2026-06-02",
+        "description": "Linux Mint的完整安裝教學，但是老嫗能解（未完工）",
+        "tags":["Linux","教學","新手"]
+    },
+    {
         "slug":"linux-for-beginner",
         "title":"《成為Linux使用者並在一年內挑戰Arch Linux》01 - Linux 是什麼？能吃嗎？",
         "time":"2026-05-30",

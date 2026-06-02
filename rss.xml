@@ -12,6 +12,14 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         type="application/rss+xml"/>
     
     <item>
+        <title>《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學</title>
+        <link>https://stupidestjack.github.io/blog/posts/install-mint.html</link>
+        <guid>https://stupidestjack.github.io/blog/posts/install-mint.html</guid>
+        <description>Linux Mint的完整安裝教學，但是老嫗能解（未完工）</description>
+        <pubDate>Tue, 02 Jun 2026 00:00:00 -0000</pubDate>
+        <author>Niugnep Hsueh | niugnep87@proton.me</author>
+    </item>
+    <item>
         <title>《成為Linux使用者並在一年內挑戰Arch Linux》01 - Linux 是什麼？能吃嗎？</title>
         <link>https://stupidestjack.github.io/blog/posts/linux-for-beginner.html</link>
         <guid>https://stupidestjack.github.io/blog/posts/linux-for-beginner.html</guid>

@@ -237,14 +237,6 @@ if __name__ == "__main__":
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{os.path.splitext(os.path.basename(input_file))[0]}</title>
-    <style>
-        body {{ font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 800px; margin: 0 auto; }}
-        pre {{ background: #f4f4f4; padding: 10px; border-radius: 5px; overflow-x: auto; }}
-        code {{ font-family: monospace; }}
-        blockquote {{ border-left: 5px solid #ccc; padding-left: 10px; color: #666; margin: 10px 0; }}
-        table {{ border-collapse: collapse; width: 100%; }}
-        th, td {{ border: 1px solid #ddd; padding: 8px; }}
-    </style>
 </head>
 <body>
 {body_content}
