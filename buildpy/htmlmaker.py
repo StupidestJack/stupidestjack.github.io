@@ -4,5 +4,5 @@ html_template = """<!DOCTYPE html><html lang="zh-Hant"><head>
     <title>{}</title>
     {}
     <link rel="icon" href="https://avatars.githubusercontent.com/u/229949534?v=4&size=64" type="image/png">
-    <link rel="stylesheet" href="/blog/sty.css">
+    <link rel="stylesheet" href="/sty.css">
 </head><body>{}</body></html>"""

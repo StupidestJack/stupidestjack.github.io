@@ -11,10 +11,10 @@ header = """
 </label>
 
 <div class="nav-links">
-<a href="/blog/index.html">首頁</a>
-<a href="/blog/posts/self-include.html">關於我</a>
-<a href="/blog/all.html">所有文章</a>
-<a href="/blog/timeline">時間軸</a>
+<a href="/index.html">首頁</a>
+<a href="/about.html">關於我</a>
+<a href="/all.html">所有文章</a>
+<a href="/timeline">時間軸</a>
 </div>
 
 </nav>
@@ -23,6 +23,6 @@ header = """
 
 footer = """
 <footer>
-<p>&copy; 2026~ Niugnep | 文章基於 CC BY 4.0 授權 | <a href="https://github.com/StupidestJack">GitHub</a> | <a href="/blog/rss.xml">RSS</a></p>
+<p>&copy; 2026~ Niugnep | 文章基於 CC BY 4.0 授權 | <a href="https://github.com/StupidestJack">GitHub</a> | <a href="/rss.xml">RSS</a></p>
 </footer>
 """

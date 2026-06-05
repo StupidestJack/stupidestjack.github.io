@@ -12,11 +12,11 @@ def buildrss(posts):
 xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
     <title>Niugnep 的部落格</title>
-    <link>https://stupidestjack.github.io/blog/</link>
+    <link>https://stupidestjack.github.io/</link>
     <description>一個國二生幹話的地方</description>
     <language>zh-TW</language>
     <atom:link
-        href="https://stupidestjack.github.io/blog/rss.xml"
+        href="https://stupidestjack.github.io/rss.xml"
         rel="self"
         type="application/rss+xml"/>
     '''
@@ -24,8 +24,8 @@ xmlns:atom="http://www.w3.org/2005/Atom">
         rss += f'''
     <item>
         <title>{escape(i["title"])}</title>
-        <link>https://stupidestjack.github.io/blog/posts/{i["slug"]}.html</link>
-        <guid>https://stupidestjack.github.io/blog/posts/{i["slug"]}.html</guid>
+        <link>https://stupidestjack.github.io/posts/{i["slug"]}.html</link>
+        <guid>https://stupidestjack.github.io/posts/{i["slug"]}.html</guid>
         <description>{escape(i["description"])}</description>
         <pubDate>{rss_time(i["time"])}</pubDate>
         <author>Niugnep Hsueh | niugnep87@proton.me</author>
@@ -39,19 +39,19 @@ def buildsm(posts):
     for i in posts:
         sitemap += f'''
     <url>
-        <loc>https://stupidestjack.github.io/blog/posts/{i["slug"]}.html</loc>
+        <loc>https://stupidestjack.github.io/posts/{i["slug"]}.html</loc>
         <lastmod>{i["time"]}</lastmod>
     </url>'''
 
     sitemap += f'''
     <url>
-        <loc>https://stupidestjack.github.io/blog/</loc>
+        <loc>https://stupidestjack.github.io/</loc>
         <lastmod>2026-05-12</lastmod>
     </url>'''
 
     sitemap += f'''
     <url>
-        <loc>https://stupidestjack.github.io/blog/all.html</loc>
+        <loc>https://stupidestjack.github.io/all.html</loc>
         <lastmod>2026-05-12</lastmod>
     </url>'''
     sitemap += '</urlset>'

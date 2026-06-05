@@ -9,6 +9,6 @@ og_desc = '<meta property="og:description" content="{}">'
 
 author = '<meta name="author" content="Niugnep">'
 
-canonical = '<link rel="canonical" href="https://stupidestjack.github.io/blog/posts/{}.html">'
+canonical = '<link rel="canonical" href="https://stupidestjack.github.io/posts/{}.html">'
 
 pub_date = '<meta property="article:published_time" content="{}">'

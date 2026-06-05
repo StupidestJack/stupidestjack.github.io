@@ -28,7 +28,7 @@ def build_timeline(timeline):
         {meta.og_title.format('時間軸 | Niugnep 的部落格')}
         {meta.og_desc.format('由 Niugnep 撰寫的時間軸')}
         {meta.author}
-        <link rel="canonical" href="https://stupidestjack.github.io/blog/timeline">
+        <link rel="canonical" href="https://stupidestjack.github.io/timeline">
         {meta.pub_date.format(today)}
         ''', # 第二部份：metadatas
         f'''

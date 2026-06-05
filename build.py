@@ -7,6 +7,33 @@ import buildpy.timeline as tl
 from pathlib import Path
 import json
 
+def build_about():
+    content = ''
+    with open(f"posts-md/about.md",'r') as f:
+        content = f.read()
+    html = htmlmk.html_template.format(
+        f'關於我 | Niugnep 的部落格', # 第一部份：title
+        f'''
+        {meta.desc.format('關於 Niugnep 和 Niugnep 的部落格')} 
+        {meta.og_title.format('關於我 | Niugnep 的部落格')}
+        {meta.og_desc.format('關於 Niugnep 和 Niugnep 的部落格')}
+        {meta.author}
+        <link rel="canonical" href="https://stupidestjack.github.io/about.html">
+        {meta.pub_date.format('2026-05-24')}
+        ''', # 第二部份：metadatas
+        f'''
+        {ht.header}
+        <div id="blog">
+            <div id="content">
+                {md.markdown_to_html(content)}
+            </div>
+        </div>
+        {ht.footer}
+        ''' # 第三部份：正文
+    )
+    return html
+
+
 def build(post):
     content = ''
     with open(f"posts-md/{post['slug']}.md",'r') as f:
@@ -30,28 +57,28 @@ def build(post):
             </div>
             <div id="content">
                 {md.markdown_to_html(content)}
+                <br>
             </div>
         </div>
         <div id="comment">
             <h4>Giscus留言區</h4>
             <span>要使用GitHub登入喵～</span>
             <script src="https://giscus.app/client.js"
-                data-repo="StupidestJack/blog"
-                data-repo-id="R_kgDORI815g"
-                data-category="Announcements"
-                data-category-id="DIC_kwDORI815s4C82_p"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="preferred_color_scheme"
-                data-lang="zh-TW"
-                data-loading="lazy"
-                crossorigin="anonymous"
-                async></script>
+                    data-repo="StupidestJack/stupidestjack.github.io"
+                    data-repo-id="R_kgDORI815g"
+                    data-category="Announcements"
+                    data-category-id="DIC_kwDORI815s4C82_p"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="dark"
+                    data-lang="zh-TW"
+                    crossorigin="anonymous"
+                    async>
+            </script>
             <br>
-            <h4>Cisdis（測試中，將替代Giscus）</h4>
         </div>
         {ht.footer}
         ''' # 第三部份：正文
@@ -167,6 +194,15 @@ timeline = sorted(
 )
 
 Path("posts").mkdir(exist_ok=True)
+
+try:
+    with open(f'about.html','w',encoding="utf-8") as f:
+        f.write(build_about())
+except Exception as e:
+    print(f"建置about失敗...>皿< ({e})")
+else:
+    print(f"建置about成功！>v<")
+
 for post in posts:
     try:
         with open(f'posts/{post["slug"]}.html','w',encoding="utf-8") as f:

@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://stupidestjack.github.io/blog/posts/install-mint.html</loc>
+        <loc>https://stupidestjack.github.io/posts/install-mint.html</loc>
         <lastmod>2026-06-02</lastmod>
     </url>
     <url>
-        <loc>https://stupidestjack.github.io/blog/posts/linux-for-beginner.html</loc>
+        <loc>https://stupidestjack.github.io/posts/linux-for-beginner.html</loc>
         <lastmod>2026-05-30</lastmod>
     </url>
     <url>
-        <loc>https://stupidestjack.github.io/blog/posts/linux-memes.html</loc>
+        <loc>https://stupidestjack.github.io/posts/linux-memes.html</loc>
         <lastmod>2026-05-24</lastmod>
     </url>
     <url>
-        <loc>https://stupidestjack.github.io/blog/posts/made-my-ssg.html</loc>
+        <loc>https://stupidestjack.github.io/posts/made-my-ssg.html</loc>
         <lastmod>2026-05-14</lastmod>
     </url>
     <url>
-        <loc>https://stupidestjack.github.io/blog/posts/better-website.html</loc>
+        <loc>https://stupidestjack.github.io/posts/better-website.html</loc>
         <lastmod>2026-05-10</lastmod>
     </url>
     <url>
-        <loc>https://stupidestjack.github.io/blog/posts/self-include.html</loc>
-        <lastmod>2026-05-07</lastmod>
-    </url>
-    <url>
-        <loc>https://stupidestjack.github.io/blog/</loc>
+        <loc>https://stupidestjack.github.io/</loc>
         <lastmod>2026-05-12</lastmod>
     </url>
     <url>
-        <loc>https://stupidestjack.github.io/blog/all.html</loc>
+        <loc>https://stupidestjack.github.io/all.html</loc>
         <lastmod>2026-05-12</lastmod>
     </url></urlset>
