@@ -51,6 +51,7 @@ def build(post):
                 crossorigin="anonymous"
                 async></script>
             <br>
+            <h4>Cisdis（測試中，將替代Giscus）</h4>
         </div>
         {ht.footer}
         ''' # 第三部份：正文
