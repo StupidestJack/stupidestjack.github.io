@@ -43,6 +43,13 @@ nav a:hover {
 }
 
 /* 主內容區樣式 */
+#teleport404 {
+    border: #3f3f3f solid 1px;
+    border-radius: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
 #blog {
     border: #3f3f3f solid 1px;
     border-radius: 30px;
