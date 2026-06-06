@@ -1,22 +1,17 @@
 header = """
 <header>
-<div class="logo">Niugnep 的部落格</div>
-
+<div class="logo"><a href="/index.html">Niugnep 的部落格</a></div>
 <nav class="navbar">
-
 <input type="checkbox" id="menu-toggle">
-
 <label for="menu-toggle" class="hamburger">
 ☰
 </label>
-
 <div class="nav-links">
 <a href="/index.html">首頁</a>
 <a href="/about.html">關於我</a>
 <a href="/all.html">所有文章</a>
 <a href="/timeline">時間軸</a>
 </div>
-
 </nav>
 </header>
 """
