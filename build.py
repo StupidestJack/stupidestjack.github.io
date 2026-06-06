@@ -93,7 +93,7 @@ def get_articles(posts, all):
         tags = ""
         
         for j in posts[i]["tags"]:
-            tags += f'<span class="tag">{j}</span>'
+            tags += f'<span class="tag">{j}</span> '
         article = f'''
         <article class="post-card"><a href="posts/{posts[i]['slug']}.html">
             <h3>{posts[i]["title"]}</h3>
@@ -126,7 +126,7 @@ def build_home(posts):
             rel="alternate"
             type="application/rss+xml"
             title="RSS"
-            href="/blog/rss.xml">
+            href="/rss.xml">
         ''', # 第二部份：metadatas
         f'''
         {ht.header}
