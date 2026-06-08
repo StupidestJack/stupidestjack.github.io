@@ -1,0 +1,37 @@
+[
+    {
+        "slug":"install-mint",
+        "title":"《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學",
+        "time":"2026-06-02",
+        "description": "Linux Mint的完整安裝教學，但是老嫗能解（未完工）",
+        "tags":["Linux","教學","新手"]
+    },
+    {
+        "slug":"linux-for-beginner",
+        "title":"《成為Linux使用者並在一年內挑戰Arch Linux》01 - Linux 是什麼？能吃嗎？",
+        "time":"2026-05-30",
+        "description": "開坑新系列，面向新手的Linux教學！",
+        "tags":["Linux","教學","新手"]
+    },
+    {
+        "slug":"linux-memes",
+        "title":"自製的Linux梗圖分享",
+        "time":"2026-05-24",
+        "description": "準備好了沒？大的要來了！",
+        "tags":["Linux","迷因","梗圖"]
+    },
+    {
+        "slug":"made-my-ssg",
+        "title":"我寫了個自己的SSG...",
+        "time":"2026-05-14",
+        "description": "關於寫SSG的心得",
+        "tags":["幹話","Python","程式","網路","網頁設計"]
+    },
+    {
+        "slug":"better-website",
+        "title":"現在的網站真的有點肥啊，JS濫用之術",
+        "time":"2026-05-10",
+        "description": "關於為什麼我不喜歡現在的網站",
+        "tags":["隨便亂寫","日常","網路","網頁設計"]
+    }
+]
