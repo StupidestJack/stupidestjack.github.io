@@ -1,0 +1,237 @@
+:root {
+    --bg-color: #121212;       /* 深背景色 */
+    --card-bg: #1e1e1e;        /* 卡片/區塊背景 */
+    --text-primary: #e0e0e0;   /* 主文字顏色 */
+    --text-secondary: #b0b0b0; /* 次要文字顏色 */
+    --accent-color: #74c0ff;   /* AI 說紫色強調色很配黑色，但我選了藍色:3 */
+    --nav-hover: #333;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 頁首樣式 */
+header {
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* 主內容區樣式 */
+#blog {
+    border: #3f3f3f solid 1px;
+    border-radius: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+#comment {
+    border: #3f3f3f solid 1px;
+    border-radius: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+#posts-list
+{
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+#timeline
+{
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+#title {
+font-size: 2.5rem;
+margin-bottom: 0.5rem;
+}
+
+
+/* 頁尾樣式 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 50px;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* 讓 Markdown 裡的圖片不要爆出去 */
+img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+#home {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+article {
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+}
+
+.post-time {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-description {
+    margin-top: 10px;
+}
+
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #2a2a2a;
+    color: var(--accent-color);
+
+    padding: 4px 10px;
+    margin-right: 8px;
+    margin-top: 5px;
+
+    border-radius: 999px;
+
+    font-size: 0.85rem;
+}
+
+.des {
+    color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+
+  .navbar {
+    position: relative;
+  }
+
+  .hamburger {
+    display: block;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+
+    position: absolute;
+    top: 40px;
+    right: 0;
+
+    width: 160px;
+
+    background: #1e1e1e;
+    border: 1px solid #333;
+    border-radius: 12px;
+
+    padding: 10px;
+
+    z-index: 999;
+
+    flex-direction: column;
+  }
+
+  .nav-links a {
+    display: block;
+
+    margin: 0;
+    padding: 10px;
+
+    white-space: nowrap;
+  }
+
+  #menu-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+}
+.spo {
+    filter: blur(5px);
+    transition: filter 0.2s ease;
+    cursor: pointer;
+    padding: 0 2px;
+}
+
+/* 滑鼠懸停時看清文字 */
+.spo:hover {
+    filter: blur(0);
+}

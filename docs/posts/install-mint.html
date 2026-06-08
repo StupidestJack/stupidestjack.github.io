@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="zh-Hant"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學 | Niugnep 的部落格</title>
+    
+        <meta name="description" content="Linux Mint的完整安裝教學，但是老嫗能解（未完工）"> 
+        <meta property="og:title" content="《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學">
+        <meta property="og:description" content="Linux Mint的完整安裝教學，但是老嫗能解（未完工）">
+        <meta name="author" content="Niugnep">
+        <link rel="canonical" href="https://stupidestjack.github.io/posts/install-mint.html">
+        <meta property="article:published_time" content="2026-06-02">
+        
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/229949534?v=4&size=64" type="image/png">
+    <link rel="stylesheet" href="/sty.css">
+</head><body>
+        
+<header>
+<div class="logo"><a href="/index.html">Niugnep 的部落格</a></div>
+<nav class="navbar">
+<input type="checkbox" id="menu-toggle">
+<label for="menu-toggle" class="hamburger">
+☰
+</label>
+<div class="nav-links">
+<a href="/index.html">首頁</a>
+<a href="/about.html">關於我</a>
+<a href="/all.html">所有文章</a>
+<a href="/timeline">時間軸</a>
+</div>
+</nav>
+</header>
+
+        <div id="blog">
+            <div id="title-chunk">
+                <h1 id="title" class="title">《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學</h1>
+                <span id="time" class="title">2026-06-02</span>
+            </div>
+            <div id="content">
+                <p>書接<a href="https://stupidestjack.github.io/blog/posts/linux-for-beginner.html">上回</a>，</p>
+<p>我提到了我會以Mint當作主要發行版。</p>
+<p>所以，我們今天來裝Mint吧！</p>
+
+<blockquote>
+<p>提示：我使用的是Meee圖床，圖片方面在國內會有更好的瀏覽體驗。</p>
+</blockquote>
+
+<h2>Part 1：下載Mint</h2>
+<p>我們直接到<a href="https://linuxmint.com/">Linux Mint官網</a>，</p>
+<p>應該可以看到下圖的畫面：</p>
+<img src="https://i.meee.com.tw/06nsQct.png" /><br>
+
+<p>點擊「Download」會進入到選擇版本的畫面：</p>
+<img src="https://i.meee.com.tw/BZaVlrD.png"><br>
+
+<p>通常會有Cinnamon、Xfce以及MATE（沒截到圖）三個版本。</p>
+<p>這裡建議選擇最為華麗的Cinnamon版本。</p>
+<p>點擊Cinnamon Edition下方的Download，</p>
+<p>會進入到下載畫面。</p>
+<img src="https://i.meee.com.tw/oHDiGiw.png"><br>
+
+<p>如果你想使用BT下載，可以點擊BitTorrent Download旁的64-bit下載種子檔案。</p>
+<p>往下滑則可以找到一般下載的站點。</p>
+<p>Linux Mint的下載站點遍布世界各地，</p>
+<p>比如台灣、日本、香港、法國等。</p>
+<p>找到離自己最近的站點，並點擊機構名稱就會開始下載：</p>
+<img src="https://i.meee.com.tw/KRrL04X.png"><br>
+
+<p>下載速度依照網路速度，從三分鐘到一小時不等。</p>
+
+<h2>Part 2：安裝和設定VirtualBox</h2>
+<p>有了 Linux Mint 的安裝光碟檔（ISO檔）之後，</p>
+<p>我們可以先在虛擬機器內試試看。</p>
+<p>虛擬機器類似於在電腦內建造一台虛擬的軟體電腦，</p>
+<p>與一般的電腦功能幾乎相同。</p>
+<p>以下我會教大家如何安裝VirtualBox虛擬機器軟體。</p>
+<blockquote>
+<p>提示1：如果你想直接在實體電腦上安裝，</p>
+<p>並且知道自己電腦的BIOS使用方式，請跳過這一步。</p>
+<p>實體電腦上安裝時，建議先關閉安全啟動。</p>
+<p>對於這方面，請搜尋你的電腦廠商或詢問AI。</p>
+</blockquote>
+
+<blockquote>
+<p>提示2：VirtualBox對新手以及Windows較為友好，</p>
+<p>但由於筆者電腦環境以Linux與(C槽空間見底的)Windows為主，</p>
+<p>後續安裝Linux Mint的演示會使用QEMU。</p>
+<p>不過安裝Linux Mint的階段用哪種虛擬機器都一樣。</p>
+</blockquote>
+
+<p>進入到<a href="https://www.virtualbox.org/">VirtualBox官網</a>之後，不要理會別的東西，</p>
+<p>直接點Download即可。</p>
+<img src="https://i.meee.com.tw/3AostE0.png"><br>
+
+<p>進入下載畫面之後，在左邊的Platform Packages選擇自己的作業系統。</p>
+<p>我這裡會以Windows演示。點擊Windows hosts就會下載Windows版安裝程式。</p>
+<img src="https://i.meee.com.tw/ZA4nDZP.png"><br>
+
+<blockquote>
+<p>提示：因為筆者的Windows是英文，所以截圖也是英文的。</p>
+<p>我會做翻譯，不影響觀感；但翻的不對請在下面的留言板或是Email讓我知道！</p>
+</blockquote>
+
+<p>打開安裝程式之後，點下一步。</p>
+<img src="https://i.meee.com.tw/4nCvhJJ.png"><br>
+
+<p>同意使用合約，然後再下一步。</p>
+<img src="https://i.meee.com.tw/0B8xsml.png"><br>
+
+<p>詢問要安裝的項目，預設全選再下一步。</p>
+<img src="https://i.meee.com.tw/y7UYSIX.png"><br>
+
+<p>這裡提示會暫時斷網，不過根據我的測試並不會，可以放心下一步。</p>
+<img src="https://i.meee.com.tw/nqP0Ahd.png"><br>
+
+<p>提示依賴項目不用理它，我從來沒遇過需要用到這些功能的時候。繼續下一步。</p>
+<img src="https://i.meee.com.tw/AcMPChI.png"><br>
+
+<p>給了三個選項：</p>
+<ul>
+<li>新增到開始選單</li>
+<li>建立桌面捷徑</li>
+<li>更改.ova及.ovf的文件開啟方式</li>
+</ul>
+<p>按照個人喜好調整，看不懂就預設，然後下一步。</p>
+<img src="https://i.meee.com.tw/jR239f0.png"><br>
+
+<p>準備安裝，直接繼續！</p>
+<img src="https://i.meee.com.tw/1mychmn.png"><br>
+
+<p>安裝過程會在半分鐘到五分鐘不等，你可以休息一下。</p>
+<img src="https://i.meee.com.tw/FNfJLPD.png"><br>
+
+<p>安裝結束後點完成，就會自動開啟VirtualBox主畫面。</p>
+<img src="https://i.meee.com.tw/JjMwiXL.png"><br>
+<img src="https://i.meee.com.tw/GCN2wvU.png"><br>
+
+<p>選擇「基本模式」，然後按上方的「新增」，就會顯示建立虛擬機器的畫面。</p>
+<img src="https://i.meee.com.tw/6QtwE8u.png"><br>
+
+<p>輸入自己想要的名稱，如果指名Linux Mint，VirtualBox會自己辨識。</p>
+<p>沒有也沒關係，把OS改成Linux，OS發行版改成Ubuntu，OS版本改成Ubuntu (64-bit)就可以了。</p>
+<img src="https://i.meee.com.tw/a8QLuL8.png"><br>
+
+<p>點擊「ISO映像」旁的向下箭頭，然後選「其他」。</p>
+<p>找到剛剛下載的Linux Mint安裝光碟檔。</p>
+<img src="https://i.meee.com.tw/8pUnDj4.png"><br>
+
+<p>請把「以無人值守安裝繼續」取消，自己動手才好玩，而且又不難。 &lt;!--我沒說謊，Mint真的不難啊--&gt;</p>
+<img src="https://i.meee.com.tw/gyDDTfo.png"><br>
+
+<p>接著會建立虛擬機器的虛擬硬體。</p>
+<p>基礎記憶體可以調大，但不能到紅色範圍；CPU數量也是；磁碟大小不能超過C槽的剩餘容量，但也不要剛好比較好。</p>
+<img src="https://i.meee.com.tw/EdRFuaH.png"><br>
+
+<p>最後會進入這個畫面，直接點完成即可。</p>
+<img src="https://i.meee.com.tw/Epmy0eF.png"><br>
+
+<p>看到這個畫面就代表虛擬機器建立成功了！點「啟動」就可以開機虛擬機器。</p>
+<img src="https://i.meee.com.tw/lzfUcxo.png"><br>
+
+<h2>Part 3：正式安裝Linux Mint！</h2>
+<p>相信我，非常簡單。</p>
+
+<p>看到這個畫面之後，可以直接按Enter，或者等它。</p>
+<p>實體機的樣子可能不一樣，但沒關係，一樣Enter。</p>
+<img src="https://i.meee.com.tw/QWZlbE0.png"><br>
+
+<p>然後就...進入桌面了？</p>
+<p>莫慌！這是Live環境，相當於把整個系統塞進記憶體。</p>
+<p>在裡面不論做什麼，重啟後都不會保留 <span class="spo">是個看片的好地方</span></p>
+<img src="https://i.meee.com.tw/VeHouJJ.png"><br>
+
+                <br>
+            </div>
+        </div>
+        <div id="comment">
+            <h4>Giscus留言區</h4>
+            <span>要使用GitHub登入喵～</span>
+            <script src="https://giscus.app/client.js"
+                    data-repo="StupidestJack/stupidestjack.github.io"
+                    data-repo-id="R_kgDORI815g"
+                    data-category="Announcements"
+                    data-category-id="DIC_kwDORI815s4C82_p"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="dark"
+                    data-lang="zh-TW"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+            <br>
+        </div>
+        
+<footer>
+<p>&copy; 2026~ Niugnep | 文章基於 CC BY 4.0 授權 | <a href="https://github.com/StupidestJack">GitHub</a> | <a href="/rss.xml">RSS</a></p>
+</footer>
+
+        </body></html>
