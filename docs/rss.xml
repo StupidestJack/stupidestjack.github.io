@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-    <title>某人的部落格</title>
+    <title>Niugnep 的部落格</title>
     <link>https://someone.github.io</link>
-    <description>第一行</description>
+    <description>一個國二生幹話的地方。</description>
     <language>zh-TW</language>
     <atom:link href="https://someone.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
@@ -13,7 +13,7 @@
         <guid>https://someone.github.io/posts/install-mint.html</guid>
         <description>Linux Mint的完整安裝教學，但是老嫗能解（未完工）</description>
         <pubDate>Tue, 02 Jun 2026 00:00:00 -0000</pubDate>
-        <author>someone@email.com (某人)</author>
+        <author>niugnep87@proton.me (Niugnep)</author>
     </item>
     <item>
         <title>《成為Linux使用者並在一年內挑戰Arch Linux》01 - Linux 是什麼？能吃嗎？</title>
@@ -21,7 +21,7 @@
         <guid>https://someone.github.io/posts/linux-for-beginner.html</guid>
         <description>開坑新系列，面向新手的Linux教學！</description>
         <pubDate>Sat, 30 May 2026 00:00:00 -0000</pubDate>
-        <author>someone@email.com (某人)</author>
+        <author>niugnep87@proton.me (Niugnep)</author>
     </item>
     <item>
         <title>自製的Linux梗圖分享</title>
@@ -29,7 +29,7 @@
         <guid>https://someone.github.io/posts/linux-memes.html</guid>
         <description>準備好了沒？大的要來了！</description>
         <pubDate>Sun, 24 May 2026 00:00:00 -0000</pubDate>
-        <author>someone@email.com (某人)</author>
+        <author>niugnep87@proton.me (Niugnep)</author>
     </item>
     <item>
         <title>我寫了個自己的SSG...</title>
@@ -37,7 +37,7 @@
         <guid>https://someone.github.io/posts/made-my-ssg.html</guid>
         <description>關於寫SSG的心得</description>
         <pubDate>Thu, 14 May 2026 00:00:00 -0000</pubDate>
-        <author>someone@email.com (某人)</author>
+        <author>niugnep87@proton.me (Niugnep)</author>
     </item>
     <item>
         <title>現在的網站真的有點肥啊，JS濫用之術</title>
@@ -45,5 +45,5 @@
         <guid>https://someone.github.io/posts/better-website.html</guid>
         <description>關於為什麼我不喜歡現在的網站</description>
         <pubDate>Sun, 10 May 2026 00:00:00 -0000</pubDate>
-        <author>someone@email.com (某人)</author>
+        <author>niugnep87@proton.me (Niugnep)</author>
     </item></channel></rss>

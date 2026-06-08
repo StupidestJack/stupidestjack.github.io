@@ -1,15 +1,15 @@
-site_title = "某人的部落格"
+site_title = "Niugnep 的部落格"
 site_desc = [
-    "第一行",
-    "第二行"
+    "一個國二生幹話的地方。",
+    "什麼都有，想到什麼寫什麼，切莫強求文章品質。"
 ]
 url = "https://someone.github.io"
-author = "某人"
-author_email = "someone@email.com"
+author = "Niugnep"
+author_email = "niugnep87@proton.me"
 year = 2026
 posts_license = "CC BY 4.0"
-icon = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYC8vK_VsBcTpEy7Ct1CmHfEMBveAsGgZ2yw&s"
-giscus_tips = "請使用 GitHub 帳號登入"
+icon = "https://avatars.githubusercontent.com/u/229949534?v=4&size=64"
+giscus_tips = "要使用 GitHub 帳號登入喵~"
 giscus = {
     "repo": "StupidestJack/stupidestjack.github.io",
     "repo_id": "R_kgDORI815g",
