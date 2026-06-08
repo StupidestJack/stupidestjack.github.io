@@ -179,7 +179,7 @@ def build_all(posts):
 with open("posts.json", "r", encoding="utf-8") as f:
     posts = json.load(f)
 
-with open("timeline/line.json", "r", encoding="utf-8") as f:
+with open("timeline.json", "r", encoding="utf-8") as f:
     timeline = json.load(f)
 
 posts = sorted(
@@ -193,10 +193,8 @@ timeline = sorted(
     reverse=True
 )
 
-Path("posts").mkdir(exist_ok=True)
-
 try:
-    with open(f'about.html','w',encoding="utf-8") as f:
+    with open(f'docs/about.html','w',encoding="utf-8") as f:
         f.write(build_about())
 except Exception as e:
     print(f"建置about失敗...>皿< ({e})")
@@ -205,7 +203,7 @@ else:
 
 for post in posts:
     try:
-        with open(f'posts/{post["slug"]}.html','w',encoding="utf-8") as f:
+        with open(f'docs/posts/{post["slug"]}.html','w',encoding="utf-8") as f:
             f.write(build(post))
     except Exception as e:
         print(f"建置{post['slug']}失敗...>皿< ({e})")
@@ -213,7 +211,7 @@ for post in posts:
         print(f"建置{post['slug']}成功！>v<")
 
 try:
-    with open("index.html", "w", encoding="utf-8") as f:
+    with open("docs/index.html", "w", encoding="utf-8") as f:
         f.write(build_home(posts))
 except Exception as e:
     print(f"建置index失敗...>皿< ({e})")
@@ -221,7 +219,7 @@ else:
     print(f"建置index成功！>v<")
 
 try:
-    with open("all.html", "w", encoding="utf-8") as f:
+    with open("docs/all.html", "w", encoding="utf-8") as f:
         f.write(build_all(posts))
 except Exception as e:
     print(f"建置all失敗...>皿< ({e})")
@@ -229,7 +227,7 @@ else:
     print(f"建置all成功！>v<")
     
 try:
-    with open("sitemap.xml", "w", encoding="utf-8") as f:
+    with open("docs/sitemap.xml", "w", encoding="utf-8") as f:
         f.write(xmlb.buildsm(posts))
 except Exception as e:
     print(f"建置sitemap失敗...>皿< ({e})")
@@ -237,7 +235,7 @@ else:
     print(f"建置sitemap成功！>v<")
 
 try:
-    with open("rss.xml", "w", encoding="utf-8") as f:
+    with open("docs/rss.xml", "w", encoding="utf-8") as f:
         f.write(xmlb.buildrss(posts))
 except Exception as e:
     print(f"建置rss失敗...>皿< ({e})")
@@ -245,7 +243,7 @@ else:
     print(f"建置rss成功！>v<")
 
 try:
-    with open("timeline/index.html", "w", encoding="utf-8") as f:
+    with open("docs/timeline/index.html", "w", encoding="utf-8") as f:
         f.write(tl.build_timeline(timeline))
 except Exception as e:
     print(f"建置timeline失敗...>皿< ({e})")
