@@ -5,11 +5,13 @@ import buildpy.metadata as meta
 import buildpy.xmlbuild as xmlb
 import buildpy.config as conf
 from pathlib import Path
+from datetime import datetime
 import json
 
+now = datetime.now()
 def build_about():
     content = ''
-    about_path = Path("posts-md/about.md")
+    about_path = Path("posts-md/spec/about.md")
     if not about_path.exists():
         content = "# 關於我\n這裡目前沒有內容，請建立 `posts-md/about.md`！"
     else:
@@ -25,6 +27,37 @@ def build_about():
         {meta.author}
         <link rel="canonical" href="{conf.url}/about.html">
         {meta.pub_date.format('2026-05-24')}
+        ''',
+        f'''
+        {ht.get_header()}
+        <div id="blog">
+            <div id="content">
+                {md.markdown_to_html(content)}
+            </div>
+        </div>
+        {ht.get_footer()}
+        '''
+    )
+    return html
+
+def build_pushing():
+    content = ''
+    push_content = Path("posts-md/spec/push.md")
+    if not push_content.exists():
+        content = ""
+    else:
+        with open(push_content, 'r', encoding="utf-8") as f:
+            content = f.read()
+        
+    html = htmlmk.html_template.format(
+        f'推爛 | {conf.site_title}',
+        f'''
+        {meta.desc.format(f'本人的一些推薦站點')} 
+        {meta.og_title.format(f'推爛 | {conf.site_title}')}
+        {meta.og_desc.format(f'本人的一些推薦站點')}
+        {meta.author}
+        <link rel="canonical" href="{conf.url}/about.html">
+        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
         ''',
         f'''
         {ht.get_header()}
@@ -122,7 +155,7 @@ def build_home(posts):
         {meta.og_title.format(conf.site_title)}
         {meta.og_desc.format(f"{conf.site_title}的首頁")}
         {meta.author}
-        {meta.pub_date.format("2026-05-12")}
+        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
         <meta name="google-site-verification" content="-BsyQE4UmvmmmNQqDf_hvjxk3V9AFHN1nPSElMM7Vs0" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
         ''',
@@ -152,7 +185,7 @@ def build_all(posts):
         {meta.og_title.format(conf.site_title)}
         {meta.og_desc.format(f"{conf.site_title}的所有文章畫面")}
         {meta.author}
-        {meta.pub_date.format("2026-05-12")}
+        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
         ''',
         f'''
         {ht.get_header()}
