@@ -3,7 +3,7 @@ site_desc = [
     "一個國二生幹話的地方。",
     "什麼都有，想到什麼寫什麼，切莫強求文章品質。"
 ]
-url = "https://someone.github.io"
+url = "https://stupidestjack.github.io"
 author = "Niugnep"
 author_email = "niugnep87@proton.me"
 year = 2026
