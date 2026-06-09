@@ -8,7 +8,7 @@ from pathlib import Path
 from datetime import datetime
 import json
 
-now = datetime.now()
+now = datetime.now() 
 def build_about():
     content = ''
     about_path = Path("posts-md/spec/about.md")
@@ -40,20 +40,20 @@ def build_about():
     )
     return html
 
-def build_pushing():
-    content = ''
-    push_content = Path("posts-md/spec/push.md")
-    if not push_content.exists():
+def build_recommand():
+    content = '# 我推的站點\n'
+    recommand_content = Path("posts-md/spec/recommand.md")
+    if not recommand_content.exists():
         content = ""
     else:
-        with open(push_content, 'r', encoding="utf-8") as f:
+        with open(recommand_content, 'r', encoding="utf-8") as f:
             content = f.read()
         
     html = htmlmk.html_template.format(
-        f'推爛 | {conf.site_title}',
+        f'我推的站點 | {conf.site_title}',
         f'''
         {meta.desc.format(f'本人的一些推薦站點')} 
-        {meta.og_title.format(f'推爛 | {conf.site_title}')}
+        {meta.og_title.format(f'我推的站點 | {conf.site_title}')}
         {meta.og_desc.format(f'本人的一些推薦站點')}
         {meta.author}
         <link rel="canonical" href="{conf.url}/about.html">
@@ -270,6 +270,15 @@ def run_build():
         print(f"建置 rss 失敗... >皿< ({e})")
     else:
         print("建置 rss 成功！ >v<")
+
+    # 7. 我推的站點
+    try:
+        with open("docs/recommand.html", "w", encoding="utf-8") as f:
+            f.write(build_recommand())
+    except Exception as e:
+        print(f"建置 recommand 失敗... >皿< ({e})")
+    else:
+        print("建置 recommand 成功！ >v<")
 
 if __name__ == "__main__":
     run_build()
