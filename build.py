@@ -203,6 +203,35 @@ def build_all(posts):
     )
     return html
 
+def build_404():
+    html = htmlmk.html_template.format(
+        f"找不到此頁面 | {conf.site_title}",
+        f'''
+        ''',
+        f'''
+        {ht.get_header()}
+        <section class="hero">
+            <h1>迷路的旅行者，您在找什麼呢？</h1>
+        </section>
+        <div id="err404" style="text-align: center;">
+            <h2>Error 404，網頁不見了。</h2>
+            <p>此處乃虛無之地，無任何可留戀之處。</p>
+            <p>此地附近有數個傳送之門，或許您需要這個。</p>
+            <div id="blog">
+                <h2>傳送之門</h2>
+                <a href="/index.html">首頁</a>
+                <a href="/about.html">關於我</a>
+                <a href="/all.html">所有文章</a>
+                <a href="/timeline">時間軸</a><br>
+                <a href="https://github.com/StupidestJack/stupidestjack.github.io/issues">質問此世之神(GitHub Issues)</a>
+                <br><br>
+            </div>
+        </div>
+        {ht.get_footer()}
+        '''
+    )
+    return html
+
 def run_build():
     """執行完整建置的進入點"""
     Path("docs/posts").mkdir(parents=True, exist_ok=True)
@@ -279,6 +308,15 @@ def run_build():
         print(f"建置 recommand 失敗... >皿< ({e})")
     else:
         print("建置 recommand 成功！ >v<")
+
+    # 8. 404
+    try:
+        with open("docs/404.html", "w", encoding="utf-8") as f:
+            f.write(build_404())
+    except Exception as e:
+        print(f"建置 404 失敗... >皿< ({e})")
+    else:
+        print("建置 404 成功！ >v<")
 
 if __name__ == "__main__":
     run_build()

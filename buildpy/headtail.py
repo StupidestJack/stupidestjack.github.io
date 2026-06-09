@@ -11,6 +11,7 @@ def get_header():
             <a href="/index.html">首頁</a>
             <a href="/about.html">關於我</a>
             <a href="/all.html">所有文章</a>
+            <a href="/recommand.html">我推的站點</a>
         </div>
     </nav>
 </header>
