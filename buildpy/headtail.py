@@ -11,7 +11,6 @@ def get_header():
             <a href="/index.html">首頁</a>
             <a href="/about.html">關於我</a>
             <a href="/all.html">所有文章</a>
-            <a href="/recommand.html">我推的站點</a>
         </div>
     </nav>
 </header>
@@ -20,6 +19,7 @@ def get_header():
 def get_footer():
     return f"""
 <footer>
-    <p>&copy; {conf.year} {conf.author} | 文章基於 {conf.posts_license} 授權 | <a href="/rss.xml">RSS</a></p> | Powered by Niugnep's Blog Template
+    <p>&copy; {conf.year} {conf.author} | 文章基於 {conf.posts_license} 授權 | <a href="/rss.xml">RSS</a></p>
+    <p>Powered by Niugnep's Blog Template</p>
 </footer>
 """
