@@ -44,11 +44,12 @@ def build_recommand():
     content = '# 我推的站點\n'
     recommand_content = Path("posts-md/spec/recommand.md")
     if not recommand_content.exists():
-        content = ""
+        content += ""
     else:
         with open(recommand_content, 'r', encoding="utf-8") as f:
-            content = f.read()
+            content += f.read()
         
+    content += "<br>"
     html = htmlmk.html_template.format(
         f'我推的站點 | {conf.site_title}',
         f'''
