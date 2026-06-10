@@ -40,13 +40,13 @@ def build_about():
     )
     return html
 
-def build_recommand():
+def build_recommend():
     content = '# 我推的站點\n'
-    recommand_content = Path("posts-md/spec/recommand.md")
-    if not recommand_content.exists():
+    recommend_content = Path("posts-md/spec/recommend.md")
+    if not recommend_content.exists():
         content += ""
     else:
-        with open(recommand_content, 'r', encoding="utf-8") as f:
+        with open(recommend_content, 'r', encoding="utf-8") as f:
             content += f.read()
         
     content += "<br>"
@@ -303,12 +303,12 @@ def run_build():
 
     # 7. 我推的站點
     try:
-        with open("docs/recommand.html", "w", encoding="utf-8") as f:
-            f.write(build_recommand())
+        with open("docs/recommend.html", "w", encoding="utf-8") as f:
+            f.write(build_recommend())
     except Exception as e:
-        print(f"建置 recommand 失敗... >皿< ({e})")
+        print(f"建置 recommend 失敗... >皿< ({e})")
     else:
-        print("建置 recommand 成功！ >v<")
+        print("建置 recommend 成功！ >v<")
 
     # 8. 404
     try:
