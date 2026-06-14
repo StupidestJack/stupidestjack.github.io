@@ -13,6 +13,7 @@ def get_header():
             <a href="/all.html">所有文章</a>
             <a href="/recommend.html">我推的站點</a>
             <a href="/timeline">時間軸</a>
+            <a href="/random.html">隨機文章</a>
         </div>
     </nav>
 </header>

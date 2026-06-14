@@ -234,6 +234,53 @@ def build_404():
     )
     return html
 
+def build_random(posts):
+    """建置隨機跳轉頁面，此處採用 JSON 傳遞 slug 並以 JS 亂數跳轉"""
+    slugs = [post["slug"] for post in posts]
+    slugs_json = json.dumps(slugs)
+    
+    html = htmlmk.html_template.format(
+        f'隨機文章 | {conf.site_title}',
+        f'''
+        {meta.desc.format(f'隨機挑選一篇 {conf.author} 的文章閱讀')} 
+        {meta.og_title.format(f'隨機文章 | {conf.site_title}')}
+        {meta.og_desc.format(f'隨機挑選一篇 {conf.author} 的文章閱讀')}
+        {meta.author}
+        <link rel="canonical" href="{conf.url}/random.html">
+        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
+        ''',
+        f'''
+        {ht.get_header()}
+        <div id="blog" style="text-align: center; padding: 100px 20px;">
+            <div id="content">
+                <h2 style="font-size: 1.8rem; margin-bottom: 15px;">正在挑選隨機文章...</h2>
+                <p style="color: #666; font-size: 1rem;">
+                    如果瀏覽器沒有自動跳轉，請點擊 <a id="redirect-link" href="/index.html" style="color: #007acc; text-decoration: underline;">這裡</a>回到首頁。
+                </p>
+            </div>
+        </div>
+        
+        <script>
+            // 於建置時直接注入的所有文章 Slug 列表
+            const posts = {slugs_json};
+            if (posts && posts.length > 0) {{
+                const randomSlug = posts[Math.floor(Math.random() * posts.length)];
+                const targetUrl = "/posts/" + randomSlug + ".html";
+                
+                // 設定備用點擊連結
+                document.getElementById("redirect-link").href = targetUrl;
+                
+                // 執行跳轉
+                window.location.replace(targetUrl);
+            }} else {{
+                window.location.replace("/index.html");
+            }}
+        </script>
+        {ht.get_footer()}
+        '''
+    )
+    return html
+
 def run_build():
     """執行完整建置的進入點"""
     Path("docs/posts").mkdir(parents=True, exist_ok=True)
@@ -257,8 +304,6 @@ def run_build():
         key=lambda x: x["time"],
         reverse=True
     )
-
-    posts = sorted(posts, key=lambda x: x["time"], reverse=True)
 
     # 1. 關於我
     try:
@@ -347,15 +392,14 @@ def run_build():
     else:
         print(f"建置timeline成功！>v< (共建置了 {len(pages)} 個頁面)")
 
+    # 10. 隨機文章頁面
+    try:
+        with open("docs/random.html", "w", encoding="utf-8") as f:
+            f.write(build_random(posts))
+    except Exception as e:
+        print(f"建置 random 失敗... >皿< ({e})")
+    else:
+        print("建置 random 成功！ >v<")
+
 if __name__ == "__main__":
     run_build()
-
-"""
-{
-    "slug":"install-mint",
-    "title":"《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學",
-    "time":"2026-06-02",
-    "description": "Linux Mint的完整安裝教學，但是老嫗能解（未完工）",
-    "tags":["Linux","教學","新手"]
-}
-"""
