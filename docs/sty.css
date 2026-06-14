@@ -58,25 +58,22 @@ nav a:hover {
     padding: 0 20px;
 }
 
-#posts-list
-{
+#posts-list {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-#timeline
-{
+#timeline {
     max-width: 800px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 #title {
-font-size: 2.5rem;
-margin-bottom: 0.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
 }
-
 
 /* 頁尾樣式 */
 footer {
@@ -155,75 +152,75 @@ article {
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
 
 #menu-toggle {
-  display: none;
+    display: none;
 }
 
 .hamburger {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 .nav-links {
-  display: flex;
-  gap: 1rem;
+    display: flex;
+    gap: 1rem;
 }
 
 /* 手機版 */
 @media (max-width: 768px) {
+    .navbar {
+        position: relative;
+    }
 
-  .navbar {
-    position: relative;
-  }
+    .hamburger {
+        display: block;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
 
-  .hamburger {
-    display: block;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-  }
+    .nav-links {
+        display: none;
 
-  .nav-links {
-    display: none;
+        position: absolute;
+        top: 40px;
+        right: 0;
 
-    position: absolute;
-    top: 40px;
-    right: 0;
+        width: 160px;
 
-    width: 160px;
+        background: #1e1e1e;
+        border: 1px solid #333;
+        border-radius: 12px;
 
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 12px;
+        padding: 10px;
 
-    padding: 10px;
+        z-index: 999;
 
-    z-index: 999;
+        flex-direction: column;
+    }
 
-    flex-direction: column;
-  }
+    .nav-links a {
+        display: block;
 
-  .nav-links a {
-    display: block;
+        margin: 0;
+        padding: 10px;
 
-    margin: 0;
-    padding: 10px;
+        white-space: nowrap;
+    }
 
-    white-space: nowrap;
-  }
-
-  #menu-toggle:checked ~ .nav-links {
-    display: flex;
-  }
-
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
+    }
 }
+
+/* 劇透效果 */
 .spoiler {
     filter: blur(5px);
     transition: filter 0.2s ease;
@@ -234,4 +231,49 @@ article {
 /* 滑鼠懸停時看清文字 */
 .spoiler:hover {
     filter: blur(0);
+}
+
+/* 時間軸分頁導覽樣式 */
+.tl-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tl-page-btn, .tl-page-num {
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.9em;
+    user-select: none;
+}
+
+.tl-page-btn:hover:not(.disabled), .tl-page-num:hover:not(.active) {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    background-color: #2a2a2a;
+}
+
+.tl-page-num.active {
+    background-color: var(--accent-color);
+    color: var(--bg-color); /* 深背景色作為前景色以提升對比度 */
+    border-color: var(--accent-color);
+    font-weight: bold;
+    cursor: default;
+}
+
+.tl-page-btn.disabled {
+    color: #555;
+    border-color: #222;
+    background-color: #161616;
+    cursor: not-allowed;
+    opacity: 0.6;
 }
