@@ -4,6 +4,7 @@ import buildpy.headtail as ht
 import buildpy.metadata as meta
 import buildpy.xmlbuild as xmlb
 import buildpy.config as conf
+import buildpy.timeline as tl
 from pathlib import Path
 from datetime import datetime
 import json
@@ -237,12 +238,25 @@ def run_build():
     """執行完整建置的進入點"""
     Path("docs/posts").mkdir(parents=True, exist_ok=True)
 
+    if not Path("timeline.json").exists():
+        print("❌ 錯誤：找不到 timeline.json，無法讀取時間軸列表！")
+        return
+
     if not Path("posts.json").exists():
         print("❌ 錯誤：找不到 posts.json，無法讀取文章列表！")
         return
 
     with open("posts.json", "r", encoding="utf-8") as f:
         posts = json.load(f)
+
+    with open("timeline.json", "r", encoding="utf-8") as f:
+        timeline = json.load(f)
+
+    posts = sorted(
+        posts,
+        key=lambda x: x["time"],
+        reverse=True
+    )
 
     posts = sorted(posts, key=lambda x: x["time"], reverse=True)
 
@@ -318,6 +332,15 @@ def run_build():
         print(f"建置 404 失敗... >皿< ({e})")
     else:
         print("建置 404 成功！ >v<")
+        
+    # 9. timeline
+    try:
+        with open("docs/timeline/index.html", "w", encoding="utf-8") as f:
+            f.write(tl.build_timeline(timeline))
+    except Exception as e:
+        print(f"建置timeline失敗...>皿< ({e})")
+    else:
+        print(f"建置timeline成功！>v<")
 
 if __name__ == "__main__":
     run_build()
