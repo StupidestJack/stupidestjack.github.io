@@ -335,12 +335,17 @@ def run_build():
         
     # 9. timeline
     try:
-        with open("docs/timeline/index.html", "w", encoding="utf-8") as f:
-            f.write(tl.build_timeline(timeline))
+        pages = tl.build_timeline_pages(timeline)
+        out_dir = Path("docs/timeline")
+        out_dir.mkdir(parents=True, exist_ok=True)
+        
+        for filename, html in pages.items():
+            with open(out_dir / filename, "w", encoding="utf-8") as f:
+                f.write(html)
     except Exception as e:
         print(f"建置timeline失敗...>皿< ({e})")
     else:
-        print(f"建置timeline成功！>v<")
+        print(f"建置timeline成功！>v< (共建置了 {len(pages)} 個頁面)")
 
 if __name__ == "__main__":
     run_build()
