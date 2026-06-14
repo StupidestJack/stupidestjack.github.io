@@ -8,6 +8,14 @@
     <atom:link href="https://stupidestjack.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+        <title>我討厭會考</title>
+        <link>https://stupidestjack.github.io/posts/i-hate-capfjhss.html</link>
+        <guid>https://stupidestjack.github.io/posts/i-hate-capfjhss.html</guid>
+        <description>當初設計會考的人自己真的沒準備過嗎？</description>
+        <pubDate>Sun, 14 Jun 2026 00:00:00 -0000</pubDate>
+        <author>niugnep87@proton.me (Niugnep)</author>
+    </item>
+    <item>
         <title>《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學</title>
         <link>https://stupidestjack.github.io/posts/install-mint.html</link>
         <guid>https://stupidestjack.github.io/posts/install-mint.html</guid>

@@ -1,5 +1,12 @@
 [
     {
+        "slug":"i-hate-capfjhss",
+        "title":"我討厭會考",
+        "time":"2026-06-14",
+        "description": "當初設計會考的人自己真的沒準備過嗎？",
+        "tags":["抒發","學校","幹話","考試"]
+    },
+    {
         "slug":"install-mint",
         "title":"《成為Linux使用者並在一年內挑戰Arch Linux》02 - 連我媽都能看懂的Linux Mint安裝教學",
         "time":"2026-06-02",
