@@ -224,7 +224,7 @@ article {
   }
 
 }
-.spo {
+.spoiler {
     filter: blur(5px);
     transition: filter 0.2s ease;
     cursor: pointer;
@@ -232,6 +232,6 @@ article {
 }
 
 /* 滑鼠懸停時看清文字 */
-.spo:hover {
+.spoiler:hover {
     filter: blur(0);
 }

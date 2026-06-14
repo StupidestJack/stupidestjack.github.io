@@ -39,57 +39,38 @@
             </div>
             <div id="content">
                 <p>講真話我不知道為啥，我偏偏要寫一個自己的SSG。</p>
-
 <h2>SSG是什麼？能吃嗎</h2>
-<p><s>不能吃但很好吃。</s></p>
-<p>SSG，全名Static Site Generator，</p>
-<p>翻譯即為靜態網站生成器。</p>
-<p>靜態網站指的是幾乎不依賴JavaScript腳本，</p>
-<p>就能顯示內容的網站，比如我說過很喜歡的<a href="ivonblog.com">Ivon</a>，</p>
-<p>他的部落格就是用SSG生成，讓不使用JS的使用者也能閱讀。</p>
-
+<p><del>不能吃但很好吃。</del> SSG，全名Static Site Generator， 翻譯即為靜態網站生成器。 靜態網站指的是幾乎不依賴JavaScript腳本， 就能顯示內容的網站，比如我說過很喜歡的<a href="ivonblog.com">Ivon</a>， 他的部落格就是用SSG生成，讓不使用JS的使用者也能閱讀。</p>
 <h2>那為啥你說不知道為啥偏偏自己寫？</h2>
-<p>因為SSG這玩意其實市面上一堆。</p>
-<p>我個人一方面希望部落格按自己的方式寫，</p>
-<p>另一方面我幾乎沒用過任何SSG。</p>
-<p>這裡讓AI舉了幾個例子：</p>
+<p>因為SSG這玩意其實市面上一堆。 我個人一方面希望部落格按自己的方式寫， 另一方面我幾乎沒用過任何SSG。 這裡讓AI舉了幾個例子：</p>
 <ul>
-<li>Jekyll</li>
-<li>Hugo</li>
-<li>VitePress</li>
+  <li>Jekyll</li>
+  <li>Hugo</li>
+  <li>VitePress</li>
 </ul>
-<p>其實我也只有用Jekyll，</p>
-<p>用自己的腳本生成完再丟給GitHub生一次Pages才能看，</p>
-<p>窮啊，誰叫Pages那麼香，一毛不花就能架網站。</p>
-<p>但Jekyll不符合我要求啊，我有sitemap、rss什麼的。</p>
-
+<p>其實我也只有用Jekyll， 用自己的腳本生成完再丟給GitHub生一次Pages才能看， 窮啊，誰叫Pages那麼香，一毛不花就能架網站。 但Jekyll不符合我要求啊，我有sitemap、rss什麼的。</p>
 <h2>寫了哪些檔案？</h2>
 <p>這些吧，應該算簡潔了。</p>
 <ul>
-<li>headtail.py：建立頁首跟頁尾</li>
-<li>htmlmaker.py：填空題，配合format建立各個網頁</li>
-<li>markdown.py：讓AI寫的MD轉HTML，<br>不用markdown模組是為了在不同裝置上使用</li>
-<li>metadata.py：就是網站一大堆Metadatas的生成器</li>
-<li>timeline.py：建置我的動態牆</li>
-<li>xmlbuild.py：建置sitemap跟rss</li>
-<li>build.py：充其量就是拼積木</li>
+  <li>headtail.py：建立頁首跟頁尾</li>
+  <li>htmlmaker.py：填空題，配合format建立各個網頁</li>
+  <li>markdown.py：讓AI寫的MD轉HTML，&lt;br&gt;不用markdown模組是為了在不同裝置上使用</li>
+  <li>metadata.py：就是網站一大堆Metadatas的生成器</li>
+  <li>timeline.py：建置我的動態牆</li>
+  <li>xmlbuild.py：建置sitemap跟rss</li>
+  <li>build.py：充其量就是拼積木</li>
 </ul>
-<p>沒啦awa</p>
-<p>是不是很簡潔呢（自肥）</p>
-
+<p>沒啦awa 是不是很簡潔呢（自肥）</p>
 <h2>有哪些坑？</h2>
 <p>超多啊</p>
 <ul>
-<li>AI寫的MD生成器缺斤少兩，應該是指令沒下對</li>
-<li>單雙引號不能亂用（ex. `f&quot;在雙引號裡的format{i[&quot;再套雙引號&quot;]}&quot;` 會讓Actions爆炸）</li>
-<li>htmlmaker要記得怎麼拼接</li>
-<li>要能看懂哪裡出錯</li>
+  <li>AI寫的MD生成器缺斤少兩，應該是指令沒下對</li>
+  <li>單雙引號不能亂用（ex. <code>f&quot;在雙引號裡的format{i[&quot;再套雙引號&quot;]}&quot;</code> 會讓Actions爆炸）</li>
+  <li>htmlmaker要記得怎麼拼接</li>
+  <li>要能看懂哪裡出錯</li>
 </ul>
-<p>這專案重建到現在三天四十個commits，</p>
-<p>其實也挺離譜的。</p>
-
-
-<p><s>順帶一題這文章是湊數的，我想拿去給Ivon放友站嘿嘿</s></p>
+<p>這專案重建到現在三天四十個commits， 其實也挺離譜的。</p>
+<p><del>順帶一題這文章是湊數的，我想拿去給Ivon放友站嘿嘿</del></p>
                 <br>
             </div>
         </div>
