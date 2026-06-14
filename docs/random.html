@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隨機文章 | Niugnep 的部落格</title>
+    
+        <meta name="description" content="隨機挑選一篇 Niugnep 的文章閱讀"> 
+        <meta property="og:title" content="隨機文章 | Niugnep 的部落格">
+        <meta property="og:description" content="隨機挑選一篇 Niugnep 的文章閱讀">
+        <meta name="author" content="Niugnep">
+        <link rel="canonical" href="https://stupidestjack.github.io/random.html">
+        <meta property="article:published_time" content="2026-06-14">
+        
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/229949534?v=4&size=64" type="image/png">
+    <link rel="stylesheet" href="/sty.css">
+</head>
+<body>
+    
+        
+<header>
+    <div class="logo"><a href="/index.html">Niugnep 的部落格</a></div>
+    <nav class="navbar">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">☰</label>
+        <div class="nav-links">
+            <a href="/index.html">首頁</a>
+            <a href="/about.html">關於我</a>
+            <a href="/all.html">所有文章</a>
+            <a href="/recommend.html">我推的站點</a>
+            <a href="/timeline">時間軸</a>
+            <a href="/random.html">隨機文章</a>
+        </div>
+    </nav>
+</header>
+
+        <div id="blog" style="text-align: center; padding: 100px 20px;">
+            <div id="content">
+                <h2 style="font-size: 1.8rem; margin-bottom: 15px;">正在挑選隨機文章...</h2>
+                <p style="color: #666; font-size: 1rem;">
+                    如果瀏覽器沒有自動跳轉，請點擊 <a id="redirect-link" href="/index.html" style="color: #007acc; text-decoration: underline;">這裡</a>回到首頁。
+                </p>
+            </div>
+        </div>
+        
+        <script>
+            // 於建置時直接注入的所有文章 Slug 列表
+            const posts = ["i-hate-capfjhss", "install-mint", "linux-for-beginner", "linux-memes", "made-my-ssg", "better-website"];
+            if (posts && posts.length > 0) {
+                const randomSlug = posts[Math.floor(Math.random() * posts.length)];
+                const targetUrl = "/posts/" + randomSlug + ".html";
+                
+                // 設定備用點擊連結
+                document.getElementById("redirect-link").href = targetUrl;
+                
+                // 執行跳轉
+                window.location.replace(targetUrl);
+            } else {
+                window.location.replace("/index.html");
+            }
+        </script>
+        
+<footer>
+    <p>&copy; 2026 Niugnep | 文章基於 CC BY 4.0 授權 | <a href="/rss.xml">RSS</a></p>
+    <p>Powered by Niugnep's Blog Template</p>
+</footer>
+
+        
+</body>
+</html>
