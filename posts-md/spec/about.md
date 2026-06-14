@@ -33,8 +33,8 @@
  - SSD：Kingston NV3 NVMe SSD (TC2201)
  - GPU：NVIDIA GeForce RTX 3050 Mobile
  - OS：Arch Linux (滾動更新懶的輸版本)
-     - DE：KDE Plasma 6
-     - Terminal：Konsole
+   - DE：KDE Plasma 6
+   - Terminal：Konsole
 
  > *So NVIDIA, f\*\*k you!* -- Linus Torvalds
 
