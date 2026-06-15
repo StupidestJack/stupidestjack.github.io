@@ -10,6 +10,7 @@ def get_header():
         <div class="nav-links">
             <a href="/index.html">首頁</a>
             <a href="/about.html">關於我</a>
+            <a href="/inventory.html">我的裝備</a>
             <a href="/all.html">所有文章</a>
             <a href="/recommend.html">我推的站點</a>
             <a href="/timeline">時間軸</a>

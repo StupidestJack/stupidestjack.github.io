@@ -58,7 +58,7 @@ def build_recommend():
         {meta.og_title.format(f'我推的站點 | {conf.site_title}')}
         {meta.og_desc.format(f'本人的一些推薦站點')}
         {meta.author}
-        <link rel="canonical" href="{conf.url}/about.html">
+        <link rel="canonical" href="{conf.url}/recommend.html">
         {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
         ''',
         f'''
@@ -72,6 +72,39 @@ def build_recommend():
         '''
     )
     return html
+
+def build_inventory():
+    content = '# 裝備欄\n'
+    inventory_content = Path("posts-md/spec/inventory.md")
+    if not inventory_content.exists():
+        content += ""
+    else:
+        with open(inventory_content, 'r', encoding="utf-8") as f:
+            content += f.read()
+        
+    content += "<br>"
+    html = htmlmk.html_template.format(
+        f'裝備欄 | {conf.site_title}',
+        f'''
+        {meta.desc.format(f'本人的一些裝備')} 
+        {meta.og_title.format(f'裝備欄 | {conf.site_title}')}
+        {meta.og_desc.format(f'本人的一些裝備')}
+        {meta.author}
+        <link rel="canonical" href="{conf.url}/inventory.html">
+        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
+        ''',
+        f'''
+        {ht.get_header()}
+        <div id="blog">
+            <div id="content">
+                {md.markdown_to_html(content)}
+            </div>
+        </div>
+        {ht.get_footer()}
+        '''
+    )
+    return html
+
 
 
 def build(post):
@@ -400,6 +433,15 @@ def run_build():
         print(f"建置 random 失敗... >皿< ({e})")
     else:
         print("建置 random 成功！ >v<")
+
+    # 11. 裝備
+    try:
+        with open("docs/inventory.html", "w", encoding="utf-8") as f:
+            f.write(build_inventory())
+    except Exception as e:
+        print(f"建置 inventory 失敗... >皿< ({e})")
+    else:
+        print("建置 inventory 成功！ >v<")
 
 if __name__ == "__main__":
     run_build()
