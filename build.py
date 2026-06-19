@@ -9,105 +9,67 @@ from pathlib import Path
 from datetime import datetime
 import json
 
-now = datetime.now() 
-def build_about():
-    content = ''
-    about_path = Path("posts-md/spec/about.md")
-    if not about_path.exists():
-        content = "# 關於我\n這裡目前沒有內容，請建立 `posts-md/about.md`！"
-    else:
-        with open(about_path, 'r', encoding="utf-8") as f:
-            content = f.read()
+now = datetime.now()
+
+def buildspec(pages):
+    """
+    自動化建置所有在 pages.json 定義的特殊獨立頁面
+    來源：posts-md/spec/{slug}.md  ->  輸出：docs/{slug}.html
+    """
+    for page in pages:
+        slug = page["slug"]
+        title = page["title"]
+        desc = page.get("desc") or page.get("description") or ""
         
-    html = htmlmk.html_template.format(
-        f'關於我 | {conf.site_title}',
-        f'''
-        {meta.desc.format(f'關於 {conf.author} 和 {conf.site_title}')} 
-        {meta.og_title.format(f'關於我 | {conf.site_title}')}
-        {meta.og_desc.format(f'關於 {conf.author} 和 {conf.site_title}')}
-        {meta.author}
-        <link rel="canonical" href="{conf.url}/about.html">
-        {meta.pub_date.format('2026-05-24')}
-        ''',
-        f'''
-        {ht.get_header()}
-        <div id="blog">
-            <div id="content">
-                {md.markdown_to_html(content)}
-            </div>
-        </div>
-        {ht.get_footer()}
-        '''
-    )
-    return html
+        # 處理動態時間 TODAY
+        time_str = page.get("time", "2026-01-01")
+        if time_str.upper() == "TODAY":
+            time_str = now.strftime("%Y-%m-%d")
 
-def build_recommend():
-    content = '# 我推的站點\n'
-    recommend_content = Path("posts-md/spec/recommend.md")
-    if not recommend_content.exists():
-        content += ""
-    else:
-        with open(recommend_content, 'r', encoding="utf-8") as f:
-            content += f.read()
+        # 讀取 Markdown 內容
+        page_path = Path(f"posts-md/spec/{slug}.md")
+        if not page_path.exists():
+            content = f"# {title}\n這裡目前沒有內容，請建立 `posts-md/spec/{slug}.md`！"
+        else:
+            with open(page_path, 'r', encoding="utf-8") as f:
+                file_content = f.read()
+            
+            # 聰明防呆：如果 Markdown 內容開頭沒有大標題 (#)，自動幫忙補上，省去手寫麻煩
+            if not file_content.strip().startswith("#"):
+                content = f"# {title}\n\n{file_content}"
+            else:
+                content = file_content
+
+        # 轉譯 HTML
+        html = htmlmk.html_template.format(
+            f'{title} | {conf.site_title}',
+            f'''
+            {meta.desc.format(desc)} 
+            {meta.og_title.format(f'{title} | {conf.site_title}')}
+            {meta.og_desc.format(desc)}
+            {meta.author}
+            <link rel="canonical" href="{conf.url}/{slug}.html">
+            {meta.pub_date.format(time_str)}
+            ''',
+            f'''
+            {ht.get_header(pages)}
+            <div id="blog">
+                <div id="content">
+                    {md.markdown_to_html(content)}
+                    <br>
+                </div>
+            </div>
+            {ht.get_footer()}
+            '''
+        )
         
-    content += "<br>"
-    html = htmlmk.html_template.format(
-        f'我推的站點 | {conf.site_title}',
-        f'''
-        {meta.desc.format(f'本人的一些推薦站點')} 
-        {meta.og_title.format(f'我推的站點 | {conf.site_title}')}
-        {meta.og_desc.format(f'本人的一些推薦站點')}
-        {meta.author}
-        <link rel="canonical" href="{conf.url}/recommend.html">
-        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
-        ''',
-        f'''
-        {ht.get_header()}
-        <div id="blog">
-            <div id="content">
-                {md.markdown_to_html(content)}
-            </div>
-        </div>
-        {ht.get_footer()}
-        '''
-    )
-    return html
-
-def build_inventory():
-    content = '# 裝備欄\n'
-    inventory_content = Path("posts-md/spec/inventory.md")
-    if not inventory_content.exists():
-        content += ""
-    else:
-        with open(inventory_content, 'r', encoding="utf-8") as f:
-            content += f.read()
-        
-    content += "<br>"
-    html = htmlmk.html_template.format(
-        f'裝備欄 | {conf.site_title}',
-        f'''
-        {meta.desc.format(f'本人的一些裝備')} 
-        {meta.og_title.format(f'裝備欄 | {conf.site_title}')}
-        {meta.og_desc.format(f'本人的一些裝備')}
-        {meta.author}
-        <link rel="canonical" href="{conf.url}/inventory.html">
-        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
-        ''',
-        f'''
-        {ht.get_header()}
-        <div id="blog">
-            <div id="content">
-                {md.markdown_to_html(content)}
-            </div>
-        </div>
-        {ht.get_footer()}
-        '''
-    )
-    return html
+        # 寫入目標檔案
+        with open(f'docs/spec/{slug}.html', 'w', encoding="utf-8") as f:
+            f.write(html)
+        print(f"  └─ 特殊頁面 {slug}.html 建置成功！ >v<")
 
 
-
-def build(post):
+def build(post, pages):
     content = ''
     with open(f"posts-md/{post['slug']}.md", 'r', encoding="utf-8") as f:
         content = f.read()
@@ -125,7 +87,7 @@ def build(post):
         {meta.pub_date.format(post["time"])}
         ''',
         f'''
-        {ht.get_header()}
+        {ht.get_header(pages)}
         <div id="blog">
             <div id="title-chunk">
                 <h1 id="title" class="title">{post["title"]}</h1>
@@ -180,7 +142,7 @@ def get_articles(posts, all_posts):
         articles += article
     return articles
 
-def build_home(posts):
+def build_home(posts, pages):
     desc_html = "<br>".join(conf.site_desc)
     
     html = htmlmk.html_template.format(
@@ -195,7 +157,7 @@ def build_home(posts):
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
         ''',
         f'''
-        {ht.get_header()}
+        {ht.get_header(pages)}
         <section class="hero">
             <h1>{conf.site_title}</h1>
             <p>{desc_html}</p>
@@ -212,7 +174,7 @@ def build_home(posts):
     )
     return html
 
-def build_all(posts):
+def build_all(posts, pages):
     html = htmlmk.html_template.format(
         f"所有文章 | {conf.site_title}",
         f'''
@@ -223,7 +185,7 @@ def build_all(posts):
         {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
         ''',
         f'''
-        {ht.get_header()}
+        {ht.get_header(pages)}
         <section class="hero">
             <h1>所有文章</h1>
         </section>
@@ -238,13 +200,13 @@ def build_all(posts):
     )
     return html
 
-def build_404():
+def build_404(pages):
     html = htmlmk.html_template.format(
         f"找不到此頁面 | {conf.site_title}",
         f'''
         ''',
         f'''
-        {ht.get_header()}
+        {ht.get_header(pages)}
         <section class="hero">
             <h1>迷路的旅行者，您在找什麼呢？</h1>
         </section>
@@ -267,8 +229,7 @@ def build_404():
     )
     return html
 
-def build_random(posts):
-    """建置隨機跳轉頁面，此處採用 JSON 傳遞 slug 並以 JS 亂數跳轉"""
+def build_random(posts, pages):
     slugs = [post["slug"] for post in posts]
     slugs_json = json.dumps(slugs)
     
@@ -283,7 +244,7 @@ def build_random(posts):
         {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
         ''',
         f'''
-        {ht.get_header()}
+        {ht.get_header(pages)}
         <div id="blog" style="text-align: center; padding: 100px 20px;">
             <div id="content">
                 <h2 style="font-size: 1.8rem; margin-bottom: 15px;">正在挑選隨機文章...</h2>
@@ -294,16 +255,11 @@ def build_random(posts):
         </div>
         
         <script>
-            // 於建置時直接注入的所有文章 Slug 列表
             const posts = {slugs_json};
             if (posts && posts.length > 0) {{
                 const randomSlug = posts[Math.floor(Math.random() * posts.length)];
                 const targetUrl = "/posts/" + randomSlug + ".html";
-                
-                // 設定備用點擊連結
                 document.getElementById("redirect-link").href = targetUrl;
-                
-                // 執行跳轉
                 window.location.replace(targetUrl);
             }} else {{
                 window.location.replace("/index.html");
@@ -326,32 +282,35 @@ def run_build():
         print("❌ 錯誤：找不到 posts.json，無法讀取文章列表！")
         return
 
+    if not Path("pages.json").exists():
+        print("❌ 錯誤：找不到 pages.json，無法讀取獨立頁面列表！")
+        return
+
     with open("posts.json", "r", encoding="utf-8") as f:
         posts = json.load(f)
 
     with open("timeline.json", "r", encoding="utf-8") as f:
         timeline = json.load(f)
 
-    posts = sorted(
-        posts,
-        key=lambda x: x["time"],
-        reverse=True
-    )
+    with open("pages.json", "r", encoding="utf-8") as f:
+        pages = json.load(f)
 
-    # 1. 關於我
+    posts = sorted(posts, key=lambda x: x["time"], reverse=True)
+
+    # 1. 執行 spec 特殊頁面動態生成
     try:
-        with open('docs/about.html', 'w', encoding="utf-8") as f:
-            f.write(build_about())
+        print("開始建置特殊獨立頁面...")
+        buildspec(pages)
     except Exception as e:
-        print(f"建置 about 失敗... >皿< ({e})")
+        print(f"建置 spec 失敗... >皿< ({e})")
     else:
-        print("建置 about 成功！ >v<")
+        print("所有 spec 特殊頁面建置完成！ >v<")
 
     # 2. 各篇文章
     for post in posts:
         try:
             with open(f'docs/posts/{post["slug"]}.html', 'w', encoding="utf-8") as f:
-                f.write(build(post))
+                f.write(build(post, pages))
         except Exception as e:
             print(f"建置 {post['slug']} 失敗... >皿< ({e})")
         else:
@@ -360,7 +319,7 @@ def run_build():
     # 3. 首頁
     try:
         with open("docs/index.html", "w", encoding="utf-8") as f:
-            f.write(build_home(posts))
+            f.write(build_home(posts, pages))
     except Exception as e:
         print(f"建置 index 失敗... >皿< ({e})")
     else:
@@ -369,7 +328,7 @@ def run_build():
     # 4. 所有文章
     try:
         with open("docs/all.html", "w", encoding="utf-8") as f:
-            f.write(build_all(posts))
+            f.write(build_all(posts, pages))
     except Exception as e:
         print(f"建置 all 失敗... >皿< ({e})")
     else:
@@ -393,55 +352,37 @@ def run_build():
     else:
         print("建置 rss 成功！ >v<")
 
-    # 7. 我推的站點
-    try:
-        with open("docs/recommend.html", "w", encoding="utf-8") as f:
-            f.write(build_recommend())
-    except Exception as e:
-        print(f"建置 recommend 失敗... >皿< ({e})")
-    else:
-        print("建置 recommend 成功！ >v<")
-
-    # 8. 404
+    # 7. 404 頁面
     try:
         with open("docs/404.html", "w", encoding="utf-8") as f:
-            f.write(build_404())
+            f.write(build_404(pages))
     except Exception as e:
         print(f"建置 404 失敗... >皿< ({e})")
     else:
         print("建置 404 成功！ >v<")
         
-    # 9. timeline
+    # 8. Timeline 時間軸
     try:
-        pages = tl.build_timeline_pages(timeline)
+        tl_pages = tl.build_timeline_pages(timeline)
         out_dir = Path("docs/timeline")
         out_dir.mkdir(parents=True, exist_ok=True)
         
-        for filename, html in pages.items():
+        for filename, html in tl_pages.items():
             with open(out_dir / filename, "w", encoding="utf-8") as f:
                 f.write(html)
     except Exception as e:
-        print(f"建置timeline失敗...>皿< ({e})")
+        print(f"建置 timeline 失敗... >皿< ({e})")
     else:
-        print(f"建置timeline成功！>v< (共建置了 {len(pages)} 個頁面)")
+        print(f"建置 timeline 成功！ >v< (共 {len(tl_pages)} 個頁面)")
 
-    # 10. 隨機文章頁面
+    # 9. 隨機文章頁面
     try:
         with open("docs/random.html", "w", encoding="utf-8") as f:
-            f.write(build_random(posts))
+            f.write(build_random(posts, pages))
     except Exception as e:
         print(f"建置 random 失敗... >皿< ({e})")
     else:
         print("建置 random 成功！ >v<")
-
-    # 11. 裝備
-    try:
-        with open("docs/inventory.html", "w", encoding="utf-8") as f:
-            f.write(build_inventory())
-    except Exception as e:
-        print(f"建置 inventory 失敗... >皿< ({e})")
-    else:
-        print("建置 inventory 成功！ >v<")
 
 if __name__ == "__main__":
     run_build()

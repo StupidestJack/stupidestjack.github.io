@@ -1,6 +1,28 @@
 import buildpy.config as conf
 
-def get_header():
+def get_header(pages=None):
+    """
+    獲取頁首 HTML，支援傳入 pages 列表以動態生成導覽列連結
+    """
+    # 預設的基本固定連結
+    links = [
+        '<a href="/index.html">首頁</a>',
+        '<a href="/about.html">關於我</a>',
+        '<a href="/all.html">所有文章</a>'
+    ]
+    
+    # 如果有傳入自訂獨立頁面，且設定要在導覽列顯示，就動態加進去
+    if pages:
+        for page in pages:
+            # 同時支援 "on_nvabar" (JSON 裡的拼法) 與標準的 "on_navbar"
+            if page.get("on_nvabar") or page.get("on_navbar"):
+                slug = page["slug"]
+                title = page["title"]
+                links.append(f'<a href="/{slug}.html">{title}</a>')
+                
+    # 將所有連結用換行與縮排組合起來
+    links_html = "\n            ".join(links)
+
     return f"""
 <header>
     <div class="logo"><a href="/index.html">{conf.site_title}</a></div>
@@ -8,13 +30,7 @@ def get_header():
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="hamburger">☰</label>
         <div class="nav-links">
-            <a href="/index.html">首頁</a>
-            <a href="/about.html">關於我</a>
-            <a href="/inventory.html">我的裝備</a>
-            <a href="/all.html">所有文章</a>
-            <a href="/recommend.html">我推的站點</a>
-            <a href="/timeline">時間軸</a>
-            <a href="/random.html">隨機文章</a>
+            {links_html}
         </div>
     </nav>
 </header>
