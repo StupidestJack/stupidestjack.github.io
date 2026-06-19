@@ -18,7 +18,7 @@ def get_header(pages=None):
             if page.get("on_nvabar") or page.get("on_navbar"):
                 slug = page["slug"]
                 title = page["title"]
-                links.append(f'<a href="/{slug}.html">{title}</a>')
+                links.append(f'<a href="/spec/{slug}.html">{title}</a>')
                 
     # 將所有連結用換行與縮排組合起來
     links_html = "\n            ".join(links)
