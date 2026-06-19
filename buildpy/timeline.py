@@ -62,7 +62,7 @@ def make_pagination(current_page, total_pages):
     '''
     return pagination_html
 
-def build_timeline_pages(timeline, pages):
+def build_timeline_pages(timeline, headpages):
     """
     核心：每 30 篇切成一個分頁，並打包成字典回傳 { "檔名.html": "完整HTML代碼" }
     """
@@ -95,7 +95,7 @@ def build_timeline_pages(timeline, pages):
             {meta.pub_date.format(today)}
             ''', # 第二部份：metadatas
             f'''
-            {ht.get_header(pages)}
+            {ht.get_header(headpages)}
             <div id="timeline">
                 <h1>時間軸</h1>
                 <p>這是個比一般文章還要瘋狂的短部落，</p>
