@@ -6,10 +6,10 @@ def get_header(pages=None):
     """
     # 預設的基本固定連結
     links = [
-        '<a href="{conf.url}/index.html">首頁</a>',
-        '<a href="{conf.url}/all.html">所有文章</a>',
-        '<a href="{conf.url}/random.html">隨機</a>',
-        '<a href="{conf.url}/timeline">時間軸</a>'
+        f'<a href="{conf.url}/index.html">首頁</a>',
+        f'<a href="{conf.url}/all.html">所有文章</a>',
+        f'<a href="{conf.url}/random.html">隨機</a>',
+        f'<a href="{conf.url}/timeline">時間軸</a>'
     ]
     
     # 如果有傳入自訂獨立頁面，且設定要在導覽列顯示，就動態加進去
