@@ -7,7 +7,6 @@ def get_header(pages=None):
     # 預設的基本固定連結
     links = [
         '<a href="/index.html">首頁</a>',
-        '<a href="/about.html">關於我</a>',
         '<a href="/all.html">所有文章</a>'
     ]
     
