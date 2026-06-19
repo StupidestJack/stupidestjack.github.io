@@ -363,7 +363,7 @@ def run_build():
         
     # 8. Timeline 時間軸
     try:
-        tl_pages = tl.build_timeline_pages(timeline)
+        tl_pages = tl.build_timeline_pages(timeline, pages)
         out_dir = Path("docs/timeline")
         out_dir.mkdir(parents=True, exist_ok=True)
         
