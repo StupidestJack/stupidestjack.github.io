@@ -98,7 +98,7 @@ def build_timeline_pages(timeline, headpages):
             {ht.get_header(headpages)}
             <div id="timeline">
                 <h1>時間軸</h1>
-                <p>這是個比一般文章還要瘋狂的短部落，</p>
+                <p>這是個比一般文章還要瘋狂的短部落格，</p>
                 <p>偶有出言不遜請見諒。</p>
                 {make_timeline(chunk)}
                 {make_pagination(page_num, total_pages)}
