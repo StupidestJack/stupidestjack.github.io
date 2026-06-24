@@ -1,4 +1,4 @@
-這個地方參考了[Wiwi 官大為的部落格的《Wiwi 現在愛用什麼》](https://wiwi.blog/use)，  
+這個地方參考了[Wiwi 官大為部落格的《Wiwi 現在愛用什麼》](https://wiwi.blog/use)，  
 肯定會雷同，別擔心，都我寫的awa
 
 ## 電腦
