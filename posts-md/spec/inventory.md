@@ -48,8 +48,9 @@
  - 同文輸入法：Android上最好的中文開源輸入法，搭配洋蔥手機方案有注音
  - Gboard：用途同IE
 ### 瀏覽器
- - Chromium：主力瀏覽器
- - Cromite：我一定是腦子被撞到才不在主力機用
+ - Firefox：主力瀏覽器，其實（略）
+ - Cromite：備用機，懶得轉換
+ - jQuarks Vuewer：基於LineageOS Jelly瀏覽器修改，拿來登學校帳號
 ### 網路相關
  - Discord：聊天軟體，手機網頁版不能用，都回家用Moto上的
  - Line：眾所周知這是個垃圾
@@ -65,3 +66,25 @@
 ### 開發環境
  - Xed-Editor：盲猜是個借鑑Linux Mint團隊Xed的手機編輯器，整合Ubuntu容器跟Git能當IDE用
  - Termux：你知道我發現Xed-Editor前有多克難嗎
+
+## 網際網路服務
+### 電子郵件
+ - Proton Mail：目前主力的電子郵件服務
+ - Gmail：備用的郵件服務，我媽註冊的
+### 文件同步
+ - GitHub：全世界最大的開源軟體倉庫
+ - Google Drive：吃灰中
+ - OneDrive：因為容量夠，拿來幫同學做圖影片備份
+ - Proton Drive：用來存放重要資料
+### 社交
+ - Facebook：只發梗圖，月更
+ - Instagram：正在籌備「每天垃一坨大奮直到人們被臭離IG」
+ - Threads：剛出時註冊過，現在是ㄊㄇ偽人社群
+ - LINE：只有智障跟老頭會覺得它很好用
+ - Signal：沒有人想用？
+ - Matrix：看看社群用的
+### AI
+ - Gemini：好用，只有ChatGPT比它更好用
+ - Copilot：請正名「人工智障」
+ - ChatGPT：好用到爆炸
+ - Grok：還是乖乖當馬伊隆的老婆吧
