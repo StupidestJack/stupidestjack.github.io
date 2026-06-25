@@ -1,6 +1,7 @@
 import buildpy.config as conf
-
-html_template = f"""<!DOCTYPE html>
+with open("style.css", "r") as f:
+    s = f.read().replace("{", "{{").replace("}", "}}")
+html_template = f'''<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -8,9 +9,9 @@ html_template = f"""<!DOCTYPE html>
     <title>{{}}</title>
     {{}}
     <link rel="icon" href="{conf.icon}" type="image/png">
-    <link rel="stylesheet" href="{conf.url}/style.css">
+    <style>{s}</style>
 </head>
 <body>
     {{}}
 </body>
-</html>"""
+</html>'''
