@@ -1,10 +1,10 @@
 :root {
-    --bg-color: #121212;       /* 深背景色 */
-    --card-bg: #1e1e1e;        /* 卡片/區塊背景 */
+    --bg-color: #262344;       /* 深背景色 */
+    --card-bg: #353457;        /* 卡片/區塊背景 */
     --text-primary: #e0e0e0;   /* 主文字顏色 */
     --text-secondary: #b0b0b0; /* 次要文字顏色 */
-    --accent-color: #74c0ff;   /* AI 說紫色強調色很配黑色，但我選了藍色:3 */
-    --nav-hover: #333;
+    --accent-color: #caaafa;   
+    --nav-hover: #45289a;
 }
 
 body {
@@ -112,7 +112,7 @@ img {
 
 article {
     background-color: var(--card-bg);
-    border: 1px solid #333;
+    border: 1px solid var(--nav-hover: #45289a;);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -138,7 +138,7 @@ article {
 
 .tag {
     display: inline-block;
-    background-color: #2a2a2a;
+    background-color: var(--bg-color);
     color: var(--accent-color);
 
     padding: 4px 10px;
@@ -199,8 +199,8 @@ article {
 
     width: 160px;
 
-    background: #1e1e1e;
-    border: 1px solid #333;
+    background: var(--bg-color);
+    border: 1px solid var(--nav-hover);
     border-radius: 12px;
 
     padding: 10px;
@@ -227,6 +227,7 @@ article {
 .spoiler {
     background-color: black;
     color: black;
+    transition: color 0.3s ease;
 }
 
 /* 滑鼠懸停時看清文字 */
