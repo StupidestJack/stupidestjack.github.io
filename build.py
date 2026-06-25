@@ -7,7 +7,7 @@ import buildpy.config as conf
 import buildpy.timeline as tl
 from pathlib import Path
 from datetime import datetime
-import json 
+import json
 
 now = datetime.now()
 

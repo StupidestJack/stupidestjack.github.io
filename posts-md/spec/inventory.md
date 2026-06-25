@@ -1,4 +1,4 @@
-這個地方參考了[Wiwi 官大為部落格的《Wiwi 現在愛用什麼》](https://wiwi.blog/use)，  
+這個地方參考了[Wiwi 官大為的部落格的《Wiwi 現在愛用什麼》](https://wiwi.blog/use)，  
 肯定會雷同，別擔心，都我寫的awa
 
 ## 電腦
@@ -7,8 +7,8 @@
  - Windows 10：第二磁區與外出機，你猜我留著幹嘛pwp
  - Windows 8.1：上古神機TravelMate 3020，至於[為什麼不是Linux](https://zh.wikipedia.org/zh-tw/2038年问题)
 ### 瀏覽器
- - Chromium：主力瀏覽器，其實很好用就是廣告多
- - Firefox：得益於誇張的語法檢查，用來檢查我的網頁
+ - Firefox：主力瀏覽器，其實Mozilla同步也很香
+ - Chromium：得益於V8的相容性，拿來開Firefox有問題的網頁
  - Edge：除了用來更新巨♂硬WebView以外不會用
 ### 網路相關
  - Discord：聊天軟體，基本上桌面版是拿來放RPC的，都開網頁版用
