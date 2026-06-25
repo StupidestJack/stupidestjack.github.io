@@ -231,6 +231,5 @@ article {
 
 /* 滑鼠懸停時看清文字 */
 .spoiler:hover {
-    color: --text-primary;
-    background-color: --bg-color;
+    color: white;
 }
