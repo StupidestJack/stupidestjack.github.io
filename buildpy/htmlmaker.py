@@ -8,7 +8,7 @@ html_template = f"""<!DOCTYPE html>
     <title>{{}}</title>
     {{}}
     <link rel="icon" href="{conf.icon}" type="image/png">
-    <link rel="stylesheet" href="{conf.url}/sty.css">
+    <link rel="stylesheet" href="{conf.url}/style.css">
 </head>
 <body>
     {{}}
