@@ -66,7 +66,7 @@
 ### 開發環境
  - Xed-Editor：盲猜是個借鑑Linux Mint團隊Xed的手機編輯器，整合Ubuntu容器跟Git能當IDE用
  - Termux：你知道我發現Xed-Editor前有多克難嗎
-
+---
 ## 網際網路服務
 ### 電子郵件
  - Proton Mail：目前主力的電子郵件服務
