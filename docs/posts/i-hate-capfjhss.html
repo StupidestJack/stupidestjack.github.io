@@ -15,12 +15,18 @@
     <link rel="icon" href="https://avatars.githubusercontent.com/u/229949534?v=4&size=64" type="image/png">
     <style>/*是的各位，我又找AI幫忙改了*/
 :root {
-    --bg-color: #262344;       /* 深背景色 */
-    --card-bg: #353457;        /* 卡片/區塊背景 */
-    --text-primary: #e0e0e0;   /* 主文字顏色 */
-    --text-secondary: #b0b0b0; /* 次要文字顏色 */
-    --accent-color: #caaafa;   /* 強調粉紫色 */
-    --nav-hover: #45289a;      /* 導覽列懸停深紫 */
+    --bg-color: #262344;         /* 深背景色 */
+    --card-bg: #353457;          /* 卡片/區塊背景 */
+    --text-primary: #e0e0e0;     /* 主文字顏色 */
+    --text-secondary: #b0b0b0;   /* 次要文字顏色 */
+    --accent-color: #caaafa;     /* 強調粉紫色 */
+    --nav-hover: #45289a;        /* 導覽列懸停深紫 */
+
+    /* ─── 以下為新整理出來的變數 ─── */
+    --border-color: #59568f;     /* 帶紫的深色邊框 */
+    --text-white: #ffffff;       /* 純白文字 */
+    --spoiler-bg: #23213e;       /* 黑幕未懸停時的暗紫色 */
+    --spoiler-hover-bg: #2b2852; /* 黑幕懸停時的微亮背景色 */
 }
 
 body {
@@ -38,7 +44,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #3d3b66; /* 稍微帶點紫的深色邊框，比純 #333 更融入 */
+    border-bottom: 1px solid var(--border-color); /* 已改成變數 */
 }
 
 .logo {
@@ -60,19 +66,19 @@ nav a:hover {
 
 /* 主內容區樣式 */
 #blog, #comment, #posts-list, #timeline {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
 }
 
 #blog, #comment {
-    border: #3d3b66 solid 1px; /* 統一改用帶紫的邊框 */
-    border-radius: 30px;
+border: var(--border-color) solid 1px; /* 已改成變數 */
+border-radius: 30px;
 }
 
 #title {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+font-size: 2.5rem;
+margin-bottom: 0.5rem;
 }
 
 /* 頁尾樣式 */
@@ -97,9 +103,9 @@ img {
 }
 
 #home {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
+max-width: 900px;
+margin: 40px auto;
+padding: 20px;
 }
 
 .hero {
@@ -109,8 +115,7 @@ img {
 
 article {
     background-color: var(--card-bg);
-    /* 🛠️ 修正這裡：原本寫 var(--nav-hover: #45289a;) 是錯誤語法，會導致邊框消失 */
-    border: 1px solid var(--nav-hover); 
+    border: 1px solid var(--nav-hover);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
@@ -146,7 +151,7 @@ article {
 }
 
 .des {
-    color: white;
+    color: var(--text-white); /* 已改成變數 */
 }
 
 .navbar {
@@ -157,7 +162,7 @@ article {
 }
 
 #menu-toggle {
-    display: none;
+display: none;
 }
 
 .hamburger {
@@ -175,7 +180,7 @@ article {
 @media (max-width: 768px) {
     .hamburger {
         display: block;
-        color: white;
+        color: var(--text-white); /* 已改成變數 */
     }
 
     .nav-links {
@@ -199,14 +204,14 @@ article {
     }
 
     #menu-toggle:checked ~ .nav-links {
-        display: flex;
+    display: flex;
     }
 }
 
 /* 🌌 藍紫色調優化版黑幕樣式 */
 .spoiler {
-    background-color: #1a1833; /* 使用比背景更深、更沉穩的暗紫色，取代原本死板的純黑 */
-    color: #1a1833;            /* 未懸停時文字顏色與背景相同，達到隱藏效果 */
+    background-color: var(--spoiler-bg); /* 已改成變數 */
+    color: var(--spoiler-bg);            /* 已改成變數 */
     border-radius: 4px;
     padding: 0 4px;
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -214,8 +219,27 @@ article {
 
 /* 滑鼠懸停時看清文字 */
 .spoiler:hover {
-    color: var(--accent-color); /* 懸停時文字亮起，變成你的招牌粉紫色 */
-    background-color: #2b2852;  /* 背景微微變亮，更有互動感 */
+    color: var(--accent-color);
+    background-color: var(--spoiler-hover-bg); /* 已改成變數 */
+}
+
+hr {
+    border: none;  
+    height: 1px;   
+    background-color: var(--border-color); 
+}
+
+td, th {
+    border-collapse: collapse;
+    border-left: var(--border-color) solid 1px;
+    border-top: var(--border-color) solid 1px;
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    border-right: var(--border-color) solid 1px;
+    border-bottom: var(--border-color) solid 1px;
 }</style>
 </head>
 <body>
