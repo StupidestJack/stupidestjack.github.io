@@ -1,28 +1,31 @@
 這個地方參考了[Wiwi 官大為的部落格的《Wiwi 現在愛用什麼》](https://wiwi.blog/use)，  
 肯定會雷同，別擔心，都我寫的awa
 
-## 電腦
+## 電腦軟體
 ### 作業系統
- - Arch Linux：主力機第一磁區，其實很簡單，除了安裝awa
- - Windows 10：第二磁區與外出機，你猜我留著幹嘛pwp
- - Windows 8.1：上古神機TravelMate 3020，至於[為什麼不是Linux](https://zh.wikipedia.org/zh-tw/2038年问题)
+ - Arch Linux：主力機，其實很簡單，除了安裝awa
+ - Windows 10：安裝在蛇蛇的硬碟，接上Sata to USB 3.0使用WTG，你猜我留著幹嘛pwp
+### 桌面環境 / WM
+ - Sway：兼具i3的穩定和Wayland的安全，目前主要的WM
+ - Plasma：非常漂亮的DE，也很好用
+ - i3wm：老牌WM，很穩很好用
+ - Xfce：老牌桌面環境，用起來中規中矩，作為備用方案
 ### 瀏覽器
  - Firefox：主力瀏覽器，其實Mozilla同步也很香
- - Chromium：得益於V8的相容性，拿來開Firefox有問題的網頁
+ - Chromium：已經很少用了，何意味MV3
  - Edge：除了用來更新巨♂硬WebView以外不會用
 ### 網路相關
  - Discord：聊天軟體，基本上桌面版是拿來放RPC的，都開網頁版用
  - Element：十分好用的Matrix前端
- - NeoChat：比Element好看些，當主力了
-### 辦公
+### 辦公軟體
  - LibreOffice：主力辦公軟體，非常好用
  - Microsoft 365：反正老爸有租，何樂而不為呢？
  - Okular：KDE的全能文件檢視器，比如PDF、ePub等文件
 ### 影音檢視
- - Elisa：KDE的音樂播放器，跟同家的Plasma超配
+ - mpv：很簡約的影音播放器
  - VLC：非常好用的全格式播放器
+ - feh：長得很終端機的圖片檢視器
  - Gwenview：KDE的圖片檢視器
- - 小畫家：是的，我把UWP搞壞了，所以Windows下用這個看圖片
 ### 影音編輯
  - Kdenlive：KDE的影片編輯器，十分好用
  - Audacity：因為KDE上會破圖所以不常用
@@ -30,20 +33,20 @@
  - KolourPaint：KDE的基礎繪圖軟體，相當於小畫家
 ### 純文字編輯
  - GNU Nano：在終端機下改設定檔的
- - Vim：生成隨機字串的好地方
- - KWrite：當記事本使的（但是比較好用）
+ - Xed：當記事本使的（但是比較好用）
  - Notepad++：認真可以取代巨♂硬的記事本
  - 記事本：學校裡面用
 ### 開發環境
  - VSCodium：我最常用的程式編輯器
  - VS Code：在Linux下給C#偵錯用的，很少開
  - Visual Studio：你猜我為什麼留著Windows 10
- - KDevelop：開發Qt很好用，但也只能拿來開發Qt
 ---
-## 手機
+## 手機軟體
 ### 作業系統
  - Android：一台三星一台Motorola，三星主力（因為要會考了嘛pwp）
  - iOS：灰塵好吃嗎？
+### 啟動器
+ - Lawnchair：好用的開源啟動器，很簡約
 ### 輸入法
  - 同文輸入法：Android上最好的中文開源輸入法，搭配洋蔥手機方案有注音
  - Gboard：用途同IE
