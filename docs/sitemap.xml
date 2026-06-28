@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
+        <loc>https://stupidestjack.github.io/posts/gfw-taiwanese-edition.html</loc>
+        <lastmod>2026-06-28</lastmod>
+    </url>
+    <url>
         <loc>https://stupidestjack.github.io/posts/galaxy-emoji.html</loc>
         <lastmod>2026-06-25</lastmod>
     </url>
@@ -30,14 +34,14 @@
     </url>
     <url>
         <loc>https://stupidestjack.github.io/recommend.html</loc>
-        <lastmod>2026-06-27</lastmod>
+        <lastmod>2026-06-28</lastmod>
     </url>
     <url>
         <loc>https://stupidestjack.github.io/all.html</loc>
-        <lastmod>2026-06-27</lastmod>
+        <lastmod>2026-06-28</lastmod>
     </url>
     <url>
         <loc>https://stupidestjack.github.io/</loc>
-        <lastmod>2026-06-27</lastmod>
+        <lastmod>2026-06-28</lastmod>
     </url>
 </urlset>
