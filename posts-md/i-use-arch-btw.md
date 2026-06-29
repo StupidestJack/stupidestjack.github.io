@@ -17,7 +17,7 @@ Arch Linux是一個從最小基本系統開始安裝的Linux發行版，你需�
 
 ## 安裝體驗
 我也重灌過好幾次了。我最近重灌這一次改用了CachyOS核心，但系統仍然是原生Arch。  
-安裝教學我就不放了，請在[Arch Wiki](https://wiki.archlinux.org/title/Main_page_(%E6%AD%A3%E9%AB%94%E4%B8%AD%E6%96%87))取得具體的教學 :P  
+安裝教學我就不放了，請在[Arch Wiki](https://wiki.archlinux.org/title/Main_page_)取得具體的教學 :P  
 其實對我來講算簡單的，因為Arch Wiki寫的非常詳細，你可以根據自己的要求來修改。  
 我使用過非常多桌面環境和視窗管理器，包含KDE Plasma、Sway、Hyprland、i3-wm、GNOME（幾乎沒怎麼用）、Cinnamon、Xfce...。  
 搞了半天我最後選擇了KDE Plasma作為主力，保留Sway作為需要專注時使用。
@@ -31,8 +31,8 @@ Arch Linux是一個從最小基本系統開始安裝的Linux發行版，你需�
 ## 另一個讓我難過的點
 我們班上**都是文盲**。
 不是我說啊，班上連作業系統都不知道的大概有一半以上，導致我只要在班上基本上沒同伴，不是自言自語就是找別的話題。
- > *「I wish everybody was as nice as I am.」* -- Linus Torvalds
- > [這裡來的](https://youtu.be/Q4SWxWIOVBM?si=7TbdoAlGi4jmjLHl&t=76)
+ > *「I wish everybody was as nice as I am.」* -- Linus Torvalds  
+ > [這裡來的](https://youtu.be/Q4SWxWIOVBM?si=7TbdoAlGi4jmjLHl&t=76)  
  > ㄊㄇㄉ覺得自己在這放這句超不要臉
 
 ## Arch的缺點
