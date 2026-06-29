@@ -87,7 +87,7 @@
  - Signal：沒有人想用？
  - Matrix：看看社群用的
 ### AI
- - Gemini：好用，只有ChatGPT比它更好用
- - Copilot：請正名「人工智障」
- - ChatGPT：好用到爆炸
+ - Gemini：情緒價值方面很強，程式能力稍弱
+ - Copilot：請正名「人工智障」（幹啥啥不行卡頓第一名）
+ - ChatGPT：程式方面很強，情緒價值也不會強到很怪
  - Grok：還是乖乖當馬伊隆的老婆吧
