@@ -1,5 +1,12 @@
 [
     {
+        "slug":"i-use-arch-btw",
+        "title":"I use Arch, btw.",
+        "time":"2026-06-29",
+        "description": "用了倆月半後的Arch使用心得",
+        "tags":["心得","自由軟體","幹話","Linux", "Arch"]
+    },
+    {
         "slug":"gfw-taiwanese-edition",
         "title":"完了，政府開始做更爛的事情了",
         "time":"2026-06-28",

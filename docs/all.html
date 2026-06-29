@@ -239,7 +239,21 @@ table {
     border-collapse: collapse;
     border-right: var(--border-color) solid 1px;
     border-bottom: var(--border-color) solid 1px;
-}</style>
+}
+blockquote {
+    border-left: var(--border-color)  4px solid;
+    padding-left: 16px;
+    margin-left: 0;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+}
+blockquote p {
+    margin: 0 0 8px 0;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+</style>
 </head>
 <body>
     
@@ -268,6 +282,13 @@ table {
         <section id="posts-list">
             <div id="posts-container">
                 
+        <article class="post-card"><a href="posts/i-use-arch-btw.html">
+            <h3>I use Arch, btw.</h3>
+            <p class="post-time">2026-06-29</p>
+            <p class="des">用了倆月半後的Arch使用心得</p>
+            <div class="tags"><span class="tag">心得</span> <span class="tag">自由軟體</span> <span class="tag">幹話</span> <span class="tag">Linux</span> <span class="tag">Arch</span> </div>
+        </a></article>
+        
         <article class="post-card"><a href="posts/gfw-taiwanese-edition.html">
             <h3>完了，政府開始做更爛的事情了</h3>
             <p class="post-time">2026-06-28</p>

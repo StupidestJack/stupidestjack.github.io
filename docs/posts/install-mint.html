@@ -240,7 +240,21 @@ table {
     border-collapse: collapse;
     border-right: var(--border-color) solid 1px;
     border-bottom: var(--border-color) solid 1px;
-}</style>
+}
+blockquote {
+    border-left: var(--border-color)  4px solid;
+    padding-left: 16px;
+    margin-left: 0;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+}
+blockquote p {
+    margin: 0 0 8px 0;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+</style>
 </head>
 <body>
     
@@ -281,21 +295,21 @@ table {
 <h2>Part 2：安裝和設定VirtualBox</h2>
 <p>有了 Linux Mint 的安裝光碟檔（ISO檔）之後， 我們可以先在虛擬機器內試試看。 虛擬機器類似於在電腦內建造一台虛擬的軟體電腦， 與一般的電腦功能幾乎相同。 以下我會教大家如何安裝VirtualBox虛擬機器軟體。</p>
 <blockquote>
-  <p>提示1：如果你想直接在實體電腦上安裝，<br/>
-  並且知道自己電腦的BIOS使用方式，請跳過這一步。<br/>
-  實體電腦上安裝時，建議先關閉安全啟動。<br/>
+  <p>提示1：如果你想直接在實體電腦上安裝，
+  並且知道自己電腦的BIOS使用方式，請跳過這一步。
+  實體電腦上安裝時，建議先關閉安全啟動。
   對於這方面，請搜尋你的電腦廠商或詢問AI。</p>
 </blockquote>
 <blockquote>
-  <p>提示2：VirtualBox對新手以及Windows較為友好，<br/>
-  但由於筆者電腦環境以Linux與(C槽空間見底的)Windows為主，<br/>
-  後續安裝Linux Mint的演示會使用QEMU。<br/>
+  <p>提示2：VirtualBox對新手以及Windows較為友好，
+  但由於筆者電腦環境以Linux與(C槽空間見底的)Windows為主，
+  後續安裝Linux Mint的演示會使用QEMU。
   不過安裝Linux Mint的階段用哪種虛擬機器都一樣。</p>
 </blockquote>
 <p>進入到<a href="https://www.virtualbox.org/">VirtualBox官網</a>之後，不要理會別的東西， 直接點Download即可。 <img src="https://i.meee.com.tw/3AostE0.png" alt="" /></p>
 <p>進入下載畫面之後，在左邊的Platform Packages選擇自己的作業系統。 我這裡會以Windows演示。點擊Windows hosts就會下載Windows版安裝程式。 <img src="https://i.meee.com.tw/ZA4nDZP.png" alt="" /></p>
 <blockquote>
-  <p>提示：因為筆者的Windows是英文，所以截圖也是英文的。<br/>
+  <p>提示：因為筆者的Windows是英文，所以截圖也是英文的。
   我會做翻譯，不影響觀感；但翻的不對請在下面的留言板或是Email讓我知道！</p>
 </blockquote>
 <p>打開安裝程式之後，點下一步。<br /> <img src="https://i.meee.com.tw/4nCvhJJ.png" alt="" /></p>

@@ -216,8 +216,11 @@ def markdown_to_html(text: str) -> str:
                             processed_lines.append(parsed_line + "<br/>")
                     else:
                         processed_lines.append(parsed_line)
-                rendered_paras.append("<br/>\n  ".join(processed_lines))
-                
+
+                # 【修正】：將原本的 "<br/>\n  ".join(...) 改為 "\n  ".join(...)
+                # 這樣一般換行就只是普通的 HTML 原始碼換行，只有符合上面條件的才會帶有 <br/>
+                rendered_paras.append("\n  ".join(processed_lines))
+
             # 套用語意化 HTML，多段落包裹為 <p>，單段落則乾淨呈現
             if len(rendered_paras) > 1:
                 content = "\n  ".join([f"<p>{p}</p>" for p in rendered_paras])
@@ -225,7 +228,7 @@ def markdown_to_html(text: str) -> str:
                 content = f"<p>{rendered_paras[0]}</p>"
             else:
                 content = ""
-                
+
             output_blocks.append(f"<blockquote>\n  {content}\n</blockquote>")
             
         current_block_content = []

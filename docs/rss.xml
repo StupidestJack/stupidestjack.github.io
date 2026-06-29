@@ -8,6 +8,14 @@
     <atom:link href="https://stupidestjack.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <item>
+        <title>I use Arch, btw.</title>
+        <link>https://stupidestjack.github.io/posts/i-use-arch-btw.html</link>
+        <guid>https://stupidestjack.github.io/posts/i-use-arch-btw.html</guid>
+        <description>用了倆月半後的Arch使用心得</description>
+        <pubDate>Mon, 29 Jun 2026 00:00:00 -0000</pubDate>
+        <author>niugnep87@proton.me (Niugnep)</author>
+    </item>
+    <item>
         <title>完了，政府開始做更爛的事情了</title>
         <link>https://stupidestjack.github.io/posts/gfw-taiwanese-edition.html</link>
         <guid>https://stupidestjack.github.io/posts/gfw-taiwanese-edition.html</guid>
