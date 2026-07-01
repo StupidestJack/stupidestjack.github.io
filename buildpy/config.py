@@ -1,6 +1,6 @@
 site_title = "Niugnep 的部落格"
 site_desc = [
-    "一個國二生幹話的地方。",
+    "一個八升九學生幹話的地方。",
     "什麼都有，想到什麼寫什麼，切莫強求文章品質。"
 ]
 url = "https://stupidestjack.github.io"
