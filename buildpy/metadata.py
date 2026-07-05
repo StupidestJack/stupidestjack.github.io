@@ -1,4 +1,4 @@
-import buildpy.config as conf
+import config as conf
 
 desc = '<meta name="description" content="{}">'
 og_title = '<meta property="og:title" content="{}">'

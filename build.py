@@ -3,8 +3,7 @@ import buildpy.htmlmaker as htmlmk
 import buildpy.headtail as ht
 import buildpy.metadata as meta
 import buildpy.xmlbuild as xmlb
-import buildpy.config as conf
-import buildpy.timeline as tl
+import config as conf
 from pathlib import Path
 from datetime import datetime
 import json
@@ -145,6 +144,10 @@ def get_articles(posts, all_posts):
 def build_home(posts, pages):
     desc_html = "<br>".join(conf.site_desc)
     
+    if conf.index_is_spec:
+        with open("posts-md/spec/index.md", "r") as f:
+            page = f.read()
+
     html = htmlmk.html_template.format(
         f"首頁 | {conf.site_title}",
         f'''
@@ -153,7 +156,6 @@ def build_home(posts, pages):
         {meta.og_desc.format(f"{conf.site_title}的首頁")}
         {meta.author}
         {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
-        <meta name="google-site-verification" content="-BsyQE4UmvmmmNQqDf_hvjxk3V9AFHN1nPSElMM7Vs0" />
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
         ''',
         f'''
@@ -169,6 +171,23 @@ def build_home(posts, pages):
                 {get_articles(posts, False)}
             </div>
         </section>
+        {ht.get_footer()}
+        '''
+    ) if not conf.index_is_spec else htmlmk.html_template.format(
+        f"首頁 | {conf.site_title}",
+        f'''
+        {meta.desc.format(f"{conf.site_title}的首頁")} 
+        {meta.og_title.format(conf.site_title)}
+        {meta.og_desc.format(f"{conf.site_title}的首頁")}
+        {meta.author}
+        {meta.pub_date.format(now.strftime("%Y-%m-%d"))}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+        ''',
+        f'''
+        {ht.get_header(pages)}
+        <div id="home-post">
+            {md.markdown_to_html(page)}
+        </div>
         {ht.get_footer()}
         '''
     )
@@ -274,10 +293,6 @@ def run_build():
     """執行完整建置的進入點"""
     Path("docs/posts").mkdir(parents=True, exist_ok=True)
 
-    if not Path("timeline.json").exists():
-        print("❌ 錯誤：找不到 timeline.json，無法讀取時間軸列表！")
-        return
-
     if not Path("posts.json").exists():
         print("❌ 錯誤：找不到 posts.json，無法讀取文章列表！")
         return
@@ -288,9 +303,6 @@ def run_build():
 
     with open("posts.json", "r", encoding="utf-8") as f:
         posts = json.load(f)
-
-    with open("timeline.json", "r", encoding="utf-8") as f:
-        timeline = json.load(f)
 
     with open("pages.json", "r", encoding="utf-8") as f:
         pages = json.load(f)
@@ -360,22 +372,8 @@ def run_build():
         print(f"建置 404 失敗... >皿< ({e})")
     else:
         print("建置 404 成功！ >v<")
-        
-    # 8. Timeline 時間軸
-    try:
-        tl_pages = tl.build_timeline_pages(timeline, pages)
-        out_dir = Path("docs/timeline")
-        out_dir.mkdir(parents=True, exist_ok=True)
-        
-        for filename, html in tl_pages.items():
-            with open(out_dir / filename, "w", encoding="utf-8") as f:
-                f.write(html)
-    except Exception as e:
-        print(f"建置 timeline 失敗... >皿< ({e})")
-    else:
-        print(f"建置 timeline 成功！ >v< (共 {len(tl_pages)} 個頁面)")
 
-    # 9. 隨機文章頁面
+    # 8. 隨機文章頁面
     try:
         with open("docs/random.html", "w", encoding="utf-8") as f:
             f.write(build_random(posts, pages))

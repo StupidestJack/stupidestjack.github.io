@@ -1,7 +1,7 @@
 from datetime import datetime
 from email.utils import format_datetime
 from html import escape
-import buildpy.config as conf
+import config as conf
 
 def rss_time(date_str):
     dt = datetime.strptime(date_str, "%Y-%m-%d")

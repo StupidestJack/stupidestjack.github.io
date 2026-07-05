@@ -7,6 +7,7 @@ url = "https://stupidestjack.github.io"
 author = "Niugnep"
 author_email = "niugnep87@proton.me"
 year = 2026
+index_is_spec = True
 posts_license = "CC BY 4.0"
 icon = "https://avatars.githubusercontent.com/u/229949534?v=4&size=64"
 giscus_tips = "要使用 GitHub 帳號登入喵~"

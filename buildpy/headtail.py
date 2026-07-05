@@ -1,4 +1,4 @@
-import buildpy.config as conf
+import config as conf
 
 def get_header(pages=None):
     """

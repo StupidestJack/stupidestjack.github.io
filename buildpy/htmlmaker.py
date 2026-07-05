@@ -1,4 +1,4 @@
-import buildpy.config as conf
+import config as conf
 with open("style.css", "r") as f:
     s = f.read().replace("{", "{{").replace("}", "}}")
 html_template = f'''<!DOCTYPE html>
