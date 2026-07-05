@@ -6,9 +6,8 @@
  - Arch Linux：主力機，其實很簡單，除了安裝awa
  - Windows 10：安裝在蛇蛇的硬碟，接上Sata to USB 3.0使用WTG，你猜我留著幹嘛pwp
 ### 桌面環境 / WM
- - Sway：兼具i3的穩定和Wayland的安全，目前主要的WM
- - Plasma：非常漂亮的DE，也很好用
- - i3wm：老牌WM，很穩很好用
+ - Plasma：非常漂亮的DE，主要桌面環境
+ - i3wm：老牌WM，其實適合打遊戲
  - Xfce：老牌桌面環境，用起來中規中矩，作為備用方案
 ### 瀏覽器
  - Firefox：主力瀏覽器，其實Mozilla同步也很香
