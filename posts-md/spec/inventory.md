@@ -4,11 +4,10 @@
 ## 電腦軟體
 ### 作業系統
  - Arch Linux：主力機，其實很簡單，除了安裝awa
- - Windows 10：安裝在蛇蛇的硬碟，接上Sata to USB 3.0使用WTG，你猜我留著幹嘛pwp
+ - Windows 10：安裝在256GB的隨身碟，插入Thunderbolt（即使它只有USB 3.2 Gen 2）使用WTG，你猜我留著幹嘛pwp
 ### 桌面環境 / WM
  - Plasma：非常漂亮的DE，主要桌面環境
- - i3wm：老牌WM，其實適合打遊戲
- - Xfce：老牌桌面環境，用起來中規中矩，作為備用方案
+ - Cinnamon：拿來懷念用的
 ### 瀏覽器
  - Firefox：主力瀏覽器，其實Mozilla同步也很香
  - Chromium：已經很少用了，何意味MV3
