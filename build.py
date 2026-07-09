@@ -7,14 +7,12 @@ import config as conf
 from pathlib import Path
 from datetime import datetime
 import json
+import subprocess
+import shutil
 
 now = datetime.now()
 
 def buildspec(pages):
-    """
-    自動化建置所有在 pages.json 定義的特殊獨立頁面
-    來源：posts-md/spec/{slug}.md  ->  輸出：docs/{slug}.html
-    """
     for page in pages:
         slug = page["slug"]
         title = page["title"]
@@ -145,7 +143,7 @@ def build_home(posts, pages):
     desc_html = "<br>".join(conf.site_desc)
     
     if conf.index_is_spec:
-        with open("posts-md/spec/index.md", "r") as f:
+        with open("posts-md/spec/index.md", "r", encoding="utf-8") as f:
             page = f.read()
 
     html = htmlmk.html_template.format(
@@ -292,14 +290,16 @@ def build_random(posts, pages):
 def run_build():
     """執行完整建置的進入點"""
     Path("docs/posts").mkdir(parents=True, exist_ok=True)
+    Path("docs/spec").mkdir(parents=True, exist_ok=True)
+    success = True
 
     if not Path("posts.json").exists():
-        print("❌ 錯誤：找不到 posts.json，無法讀取文章列表！")
-        return
+        print("錯誤：找不到 posts.json，無法讀取文章列表！")
+        return False
 
     if not Path("pages.json").exists():
-        print("❌ 錯誤：找不到 pages.json，無法讀取獨立頁面列表！")
-        return
+        print("錯誤：找不到 pages.json，無法讀取獨立頁面列表！")
+        return False
 
     with open("posts.json", "r", encoding="utf-8") as f:
         posts = json.load(f)
@@ -315,6 +315,7 @@ def run_build():
         buildspec(pages)
     except Exception as e:
         print(f"建置 spec 失敗... >皿< ({e})")
+        success = False
     else:
         print("所有 spec 特殊頁面建置完成！ >v<")
 
@@ -325,6 +326,7 @@ def run_build():
                 f.write(build(post, pages))
         except Exception as e:
             print(f"建置 {post['slug']} 失敗... >皿< ({e})")
+            success = False
         else:
             print(f"建置 {post['slug']} 成功！ >v<")
 
@@ -334,6 +336,7 @@ def run_build():
             f.write(build_home(posts, pages))
     except Exception as e:
         print(f"建置 index 失敗... >皿< ({e})")
+        success = False
     else:
         print("建置 index 成功！ >v<")
 
@@ -343,6 +346,7 @@ def run_build():
             f.write(build_all(posts, pages))
     except Exception as e:
         print(f"建置 all 失敗... >皿< ({e})")
+        success = False
     else:
         print("建置 all 成功！ >v<")
         
@@ -352,6 +356,7 @@ def run_build():
             f.write(xmlb.buildsm(posts))
     except Exception as e:
         print(f"建置 sitemap 失敗... >皿< ({e})")
+        success = False
     else:
         print("建置 sitemap 成功！ >v<")
 
@@ -361,6 +366,7 @@ def run_build():
             f.write(xmlb.buildrss(posts))
     except Exception as e:
         print(f"建置 rss 失敗... >皿< ({e})")
+        success = False
     else:
         print("建置 rss 成功！ >v<")
 
@@ -370,6 +376,7 @@ def run_build():
             f.write(build_404(pages))
     except Exception as e:
         print(f"建置 404 失敗... >皿< ({e})")
+        success = False
     else:
         print("建置 404 成功！ >v<")
 
@@ -379,8 +386,78 @@ def run_build():
             f.write(build_random(posts, pages))
     except Exception as e:
         print(f"建置 random 失敗... >皿< ({e})")
+        success = False
     else:
         print("建置 random 成功！ >v<")
+    
+    return success
+
+def popen(cmd, cwd=None):
+    """執行終端機指令的輔助函式"""
+    # ✨ 關鍵：移除 text=True，直接加上 encoding="utf-8"
+    result = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True, encoding="utf-8")
+    if result.returncode != 0:
+        print(f"執行失敗: {cmd}\n錯誤訊息: {result.stderr}")
+        return False
+    return True
 
 if __name__ == "__main__":
-    run_build()
+    if conf.deploy_to_pages_branch and run_build():
+        temp_dir = Path("../blog_temp_deploy")
+        docs_dir = Path("docs")
+        
+        if not docs_dir.exists():
+            print("找不到 docs/ 資料夾，請確認建置是否成功。")
+            exit()
+            
+        if temp_dir.exists():
+            shutil.rmtree(temp_dir)
+        shutil.copytree(docs_dir, temp_dir)
+            
+        print("提交 main 內容...")
+        popen("git add .")
+        
+        # 【優化 2】防呆機制：如果直接按 Enter 沒輸入訊息，自動補上預設時間訊息
+        user_msg = input("請輸入 git 提交訊息: ").strip()
+        if not user_msg:
+            user_msg = f"Automated deploy via build.py at {now.strftime('%Y-%m-%d %H:%M')}"
+            
+        popen(f'git commit -m "{user_msg}"')
+        popen("git push origin main")
+
+        print("切換到 pages 分支...")
+        if not popen("git checkout pages"):
+            print("嘗試建立 pages 分支...")
+            if not popen("git checkout -b pages"):
+                exit()
+        
+        print("清除 pages 分支的文件...")
+        for item in Path(".").iterdir():
+            if item.name != ".git" and item.name != "node_modules": # 依需求排除
+                if item.is_dir():
+                    shutil.rmtree(item)
+                else:
+                    item.unlink()
+        
+        print("加入 pages 分支的文件...")
+        for item in temp_dir.iterdir():
+            shutil.move(str(item), ".")
+            
+        # 【優化 1】搬移完成後，順手把專案外層的暫存資料夾刪除，保持電腦乾淨
+        if temp_dir.exists():
+            shutil.rmtree(temp_dir)
+        
+        print("提交 pages 內容...")
+        popen("git add .")
+        
+        # 【優化 2】防呆機制：如果直接按 Enter 沒輸入訊息，自動補上預設時間訊息
+        user_msg = input("請輸入 git 提交訊息: ").strip()
+        if not user_msg:
+            user_msg = f"Automated deploy via build.py at {now.strftime('%Y-%m-%d %H:%M')}"
+            
+        popen(f'git commit -m "{user_msg}"')
+        popen("git push origin pages")
+        
+        print("切換回 main 分支...")
+        popen("git checkout main")
+        print("🎉 部署成功！大功告成！ >v<")

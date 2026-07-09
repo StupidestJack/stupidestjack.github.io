@@ -10,6 +10,7 @@ year = 2026
 index_is_spec = True
 posts_license = "CC BY 4.0"
 icon = "https://avatars.githubusercontent.com/u/229949534?v=4&size=64"
+deploy_to_pages_branch = True 
 giscus_tips = "要使用 GitHub 帳號登入喵~"
 giscus = {
     "repo": "StupidestJack/stupidestjack.github.io",
