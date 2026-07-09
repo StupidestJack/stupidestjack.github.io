@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>時間軸 | Niugnep 的部落格</title>
+    
+            <meta name="description" content="由 Niugnep 撰寫的時間軸"> 
+            <meta property="og:title" content="時間軸 | Niugnep 的部落格">
+            <meta property="og:description" content="由 Niugnep 撰寫的時間軸">
+            <meta name="author" content="Niugnep">
+            <link rel="canonical" href="https://stupidestjack.github.io/timeline/">
+            <meta property="article:published_time" content="2026-07-02">
+            
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/229949534?v=4&size=64" type="image/png">
+    <style>/*是的各位，我又找AI幫忙改了*/
+:root {
+    --bg-color: #262344;         /* 深背景色 */
+    --card-bg: #353457;          /* 卡片/區塊背景 */
+    --text-primary: #e0e0e0;     /* 主文字顏色 */
+    --text-secondary: #b0b0b0;   /* 次要文字顏色 */
+    --accent-color: #caaafa;     /* 強調粉紫色 */
+    --nav-hover: #45289a;        /* 導覽列懸停深紫 */
+
+    /* ─── 以下為新整理出來的變數 ─── */
+    --border-color: #59568f;     /* 帶紫的深色邊框 */
+    --text-white: #ffffff;       /* 純白文字 */
+    --spoiler-bg: #23213e;       /* 黑幕未懸停時的暗紫色 */
+    --spoiler-hover-bg: #2b2852; /* 黑幕懸停時的微亮背景色 */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 頁首樣式 */
+header {
+    background-color: var(--card-bg);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color); /* 已改成變數 */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    letter-spacing: 1px;
+}
+
+nav a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* 主內容區樣式 */
+#blog, #comment, #posts-list, #timeline {
+max-width: 800px;
+margin: 40px auto;
+padding: 0 20px;
+}
+
+#blog, #comment {
+border: var(--border-color) solid 1px; /* 已改成變數 */
+border-radius: 30px;
+}
+
+#title {
+font-size: 2.5rem;
+margin-bottom: 0.5rem;
+}
+
+/* 頁尾樣式 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 50px;
+    background-color: var(--card-bg);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* 讓 Markdown 裡的圖片不要爆出去 */
+img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+#home {
+max-width: 900px;
+margin: 40px auto;
+padding: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+article {
+    background-color: var(--card-bg);
+    border: 1px solid var(--nav-hover);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+}
+
+.post-time {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-description {
+    margin-top: 10px;
+}
+
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--bg-color);
+    color: var(--accent-color);
+    padding: 4px 10px;
+    margin-right: 8px;
+    margin-top: 5px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+}
+
+.des {
+    color: var(--text-white); /* 已改成變數 */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+#menu-toggle {
+display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        color: var(--text-white); /* 已改成變數 */
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 40px;
+        right: 0;
+        width: 160px;
+        background: var(--bg-color);
+        border: 1px solid var(--nav-hover);
+        border-radius: 12px;
+        padding: 10px;
+        z-index: 999;
+        flex-direction: column;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px;
+        white-space: nowrap;
+    }
+
+    #menu-toggle:checked ~ .nav-links {
+    display: flex;
+    }
+}
+
+/* 🌌 藍紫色調優化版黑幕樣式 */
+.spoiler {
+    background-color: var(--spoiler-bg); /* 已改成變數 */
+    color: var(--spoiler-bg);            /* 已改成變數 */
+    border-radius: 4px;
+    padding: 0 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* 滑鼠懸停時看清文字 */
+.spoiler:hover {
+    color: var(--accent-color);
+    background-color: var(--spoiler-hover-bg); /* 已改成變數 */
+}
+
+hr {
+    border: none;  
+    height: 1px;   
+    background-color: var(--border-color); 
+}
+
+td, th {
+    border-collapse: collapse;
+    border-left: var(--border-color) solid 1px;
+    border-top: var(--border-color) solid 1px;
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    border-right: var(--border-color) solid 1px;
+    border-bottom: var(--border-color) solid 1px;
+}
+blockquote {
+    border-left: var(--border-color)  4px solid;
+    padding-left: 16px;
+    margin-left: 0;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+}
+blockquote p {
+    margin: 0 0 8px 0;
+}
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+</style>
+</head>
+<body>
+    
+            
+<header>
+    <div class="logo"><a href="/index.html">Niugnep 的部落格</a></div>
+    <nav class="navbar">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">☰</label>
+        <div class="nav-links">
+            <a href="https://stupidestjack.github.io/index.html">首頁</a>
+            <a href="https://stupidestjack.github.io/all.html">所有文章</a>
+            <a href="https://stupidestjack.github.io/random.html">隨機</a>
+            <a href="https://stupidestjack.github.io/timeline">時間軸</a>
+            <a href="/spec/about.html">關於我</a>
+            <a href="/spec/recommend.html">我推的站點</a>
+            <a href="/spec/inventory.html">裝備欄</a>
+        </div>
+    </nav>
+</header>
+
+            <div id="timeline">
+                <h1>時間軸</h1>
+                <p>這是個比一般文章還要瘋狂的短部落格，</p>
+                <p>偶有出言不遜請見諒。</p>
+                
+        <article class="tl-card">
+            <h3>2026-06-29</h3>
+            <p class="tl-des">
+                耶，我考完啦！嗨起來>口<
+            </p>
+        </article>
+        
+        <article class="tl-card">
+            <h3>2026-06-23</h3>
+            <p class="tl-des">
+                我們學校晚自習室旁邊就是廁所，然後味道超大，每次出來上廁所都很折磨
+            </p>
+        </article>
+        
+        <article class="tl-card">
+            <h3>2026-06-22</h3>
+            <p class="tl-des">
+                用NewPipe被當機器人，那真的是很有生活了，不愧是廣告大戶Google
+            </p>
+        </article>
+        
+        <article class="tl-card">
+            <h3>2026-06-21</h3>
+            <p class="tl-des">
+                痞客邦居然禁止使用者在CSS移除廣告，講難聽點就是很可悲啊
+            </p>
+        </article>
+        
+        <article class="tl-card">
+            <h3>2026-06-18</h3>
+            <p class="tl-des">
+                遇到六個同學一起來晚自習，然後四個戴了耳機，只有我用有線哈哈
+            </p>
+        </article>
+        
+        <article class="tl-card">
+            <h3>2026-06-17</h3>
+            <p class="tl-des">
+                好餓好餓好餓好餓好餓好餓好餓好餓好餓好餓好餓好餓好餓好餓好餓——欸我有帶點心吼
+            </p>
+        </article>
+        
+        <article class="tl-card">
+            <h3>2026-06-15</h3>
+            <p class="tl-des">
+                我同學用Gemini寫了象棋，分數演算法，我還是一樣菜，打不過…
+            </p>
+        </article>
+        
+        <article class="tl-card">
+            <h3>2026-06-14</h3>
+            <p class="tl-des">
+                實在是很受不了社群媒體，容許我用這個替代。——至少大部分會是。
+            </p>
+        </article>
+        
+                
+            </div>
+            
+<footer>
+    <p>&copy; 2026 Niugnep | 文章基於 CC BY 4.0 授權 | <a href="/rss.xml">RSS</a></p>
+    <p>Powered by Niugnep's Blog Template</p>
+</footer>
+
+            
+</body>
+</html>
