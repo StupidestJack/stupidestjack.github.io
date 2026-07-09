@@ -12,6 +12,7 @@ html_template = f'''<!DOCTYPE html>
     <style>{s}</style>
 </head>
 <body>
+<div id="eos"><span>此頁面將停止更新，請轉移到<a href="https://niugnep87.codeberg.page">Codeberg 站點</a></span></div>
     {{}}
 </body>
 </html>'''
