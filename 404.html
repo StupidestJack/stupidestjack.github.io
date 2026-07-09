@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頁面已搬家！Redirecting...</title>
+    <script>
+        // 1. 設定你在 Codeberg Pages 的新網域 (結尾不要加斜線)
+        // 例如：'https://yourname.codeberg.page/repo-name' 或你的自訂網域
+        const NEW_HOST = 'https://niugnep87.codeberg.page';
+
+        // 2. 自動擷取當前的子路徑與參數
+        const currentPath = window.location.pathname;
+        const currentSearch = window.location.search;
+        const currentHash = window.location.hash;
+
+        // 3. 組合出 Codeberg 的新網址
+        // 這裡會保留使用者原本點擊的子路徑，達成精準轉導
+        const targetURL = `${NEW_HOST}${currentPath}${currentSearch}${currentHash}`;
+
+        // 4. 執行秒轉導
+        window.location.replace(targetURL);
+    </script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; text-align: center; padding: 50px; color: #333; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #2185d0; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        a { color: #2185d0; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h2>頁面已遷移至 Codeberg</h2>
+    <p>正在為您自動導航至新網址，請稍候...</p>
+    <div class="loader"></div>
+    <p>如果瀏覽器沒有自動跳轉，請點擊：<br><script>document.write(`<a href="${targetURL}">${targetURL}</a>`)</script></p>
+    <a href="https://niugnep65535.codeberg.page">如果你沒有啟用JS，請走這裡前往首頁。</a>
+</body>
+</html>
